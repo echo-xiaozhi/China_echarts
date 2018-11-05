@@ -17,6 +17,10 @@
     font-family: ld;
     src: url("../font/LcdD.ttf");
 }
+@font-face {
+    font-family: shscn;
+    src: url("../font/SourceHanSansCN-Normal.ttf");
+}
 html{
     width: 1920px;
     height: 1080px;
@@ -297,4 +301,299 @@ html{
 }
 .hot .hot_list .li_center{
     width: 160px;
+}
+.food{
+    width: 368px;
+    height: 143px;
+    color: #15fffa;
+    font-family: ld, shscr;
+    position: absolute;
+    top: 76px;
+    left: 60px;
+}
+.food .food_title{
+    font-size: 30px;
+}
+.food .food_num span{
+    margin-top: 21px;
+    background: url("../images/num.png");
+    background-size: contain;
+    width: 54px;
+    height: 80px;
+    display: block;
+    float: left;
+    margin-right: 13px;
+    font-size: 84px;
+    line-height: 81px;
+    color: #ffffff;
+}
+.food .food_num .food_font{
+    float: left;
+    font-size: 30px;
+    margin-top: 65px;
+}.food{
+    width: 368px;
+    height: 143px;
+    color: #15fffa;
+    font-family: ld, shscr;
+    position: absolute;
+    top: 76px;
+    left: 60px;
+}
+.food .food_title{
+    font-size: 30px;
+}
+.food .food_num span{
+    margin-top: 21px;
+    background: url("../images/num.png");
+    background-size: contain;
+    width: 54px;
+    height: 79px;
+    display: block;
+    float: left;
+    margin-right: 13px;
+    font-size: 84px;
+    line-height: 81px;
+    color: #ffffff;
+}
+.food .food_num .food_font{
+    float: left;
+    font-size: 30px;
+    margin-top: 65px;
+}
+.money{
+    width: 510px;
+    height: 145px;
+    color: #15fffa;
+    font-family: ld, shscr;
+    position: absolute;
+    top: 300px;
+    left: 60px;
+}
+.money .money_title{
+    font-size: 30px;
+}
+.money .money_num span{
+    margin-top: 21px;
+    background: url("../images/num.png");
+    background-size: contain;
+    width: 54px;
+    height: 79px;
+    display: block;
+    float: left;
+    margin-right: 13px;
+    font-size: 84px;
+    line-height: 81px;
+    color: #ffffff;
+}
+.money .money_num .money_font{
+    float: left;
+    font-size: 30px;
+    margin-top: 65px;
+}
+.form{
+    position: absolute;
+    color: #15fffa;
+    top: 585px;
+    left: 60px;
+}
+.form .form_title{
+    width: 758px;
+    height: 31px;
+}
+.form .form_title .form_title_big{
+    font-family: shscr;
+    font-size: 30px;
+    float: left;
+    margin-right: 67px;
+}
+.form .form_title .form_title_little{
+    font-family: shscr;
+    font-size: 19px;
+    float: left;
+    line-height: 53px;
+    margin-left: 35px;
+}
+.form .form_title .form_title_little img{
+    width: 35px;
+    height: 16px;
+    margin-right: 3px;
+}
+.form .form_form{
+    width: 811px;
+    height: 394px;
+    background: url("../images/form.png") 80px 44px no-repeat;
+    background-size: contain;
+    font-family: shscn;
+}
+
+.day{
+    width: 402px;
+    height: 460px;
+    position: absolute;
+    top: 63px;
+    right: 524px;
+    background: url("../images/day.png");
+    background-size: contain;
+    font-family: gb, shscr;
+    color: #ffffff;
+}
+.day .day_title{
+    width: 368px;
+    height: 30px;
+    background: #2e5776;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.day .day_title li{
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
+.day .day_title .li_center{
+    width: 160px;
+    border-left: 1px solid #062d4a;
+    border-right: 1px solid #062d4a;
+}
+.day .day_list{
+    width: 368px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.day .day_list ul{
+    width: 368px;
+    height: 33px;
+    border-bottom: 1px dashed #26303d;
+    line-height: 22px;
+}
+.day .day_list li{
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
+.day .day_list li span{
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: 0 auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+.day .day_list .li_center{
+    width: 160px;
+}
+.hots{
+    width: 402px;
+    height: 460px;
+    position: absolute;
+    bottom: 35px;
+    right: 524px;
+    background: url("../images/hots.png");
+    background-size: contain;
+    font-family: gb, shscr;
+    color: #ffffff;
+}
+.hots .hots_title{
+    width: 368px;
+    height: 30px;
+    background: #2e5776;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.hots .hots_title li{
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
+.hots .hots_title .li_center{
+    width: 160px;
+    border-left: 1px solid #062d4a;
+    border-right: 1px solid #062d4a;
+}
+.hots .hots_list{
+    width: 368px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.hots .hots_list ul{
+    width: 368px;
+    height: 33px;
+    border-bottom: 1px dashed #26303d;
+    line-height: 22px;
+}
+.hots .hots_list li{
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
+.hots .hots_list li span{
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: 0 auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+.hots .hots_list .li_center{
+    width: 160px;
+}
+.videos{
+    width: 482px;
+    height: 1080px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    /*background: url("../images/video.png");*/
+    /*background-size: contain;*/
+}
+.videos .videos_list{
+    width: 100%;
+    height: 268px;
+
+}
+.videos .videos_list img{
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.videos  .videos_list .videos_little{
+    position: fixed;
+    height: 268px;
+    width: 482px;
+    z-index: 0;
+    /*加滤镜*/
+    /*-webkit-filter: grayscale(100%);*/
+    /*filter:grayscale(100%);*/
+}
+.videos  .videos_list .videos_little source{
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+}
+.chart{
+    width: 173px;
+    height: 173px;
+    background: url("../images/watter.png");
+    background-size: contain;
+    font-family: gb;
+    position: absolute;
+    top: 221px;
+    left: 670px;
+}
+.bool_font{
+    font-family: shscr;
+    font-size: 30px;
+    color: #15fffa;
+    position: absolute;
+    top: 400px;
+    left: 670px;
 }

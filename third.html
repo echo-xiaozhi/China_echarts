@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>第三屏</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="echarts/echarts.min.js"></script>
+    <script src='echarts/echarts-liquidfill.min.js'></script>
 </head>
 <body>
 <video class="video_player" autoplay loop muted>
@@ -17,7 +19,7 @@
         <span>9</span>
         <span>9</span>
         <span>3</span>
-        <div>单</div>
+        <div class="food_font">单</div>
     </div>
 </div>
 <div class="money">
@@ -30,30 +32,337 @@
         <span>6</span>
         <span>3</span>
         <span>4</span>
-        <div>元</div>
+        <div class="money_font">元</div>
     </div>
 </div>
-<div class="bool">
-    <div class="bool_bool"></div>
-    <div class="bool_font"></div>
-</div>
+
+<div class="chart"></div>
+<div class="bool_font">外卖销售占比</div>
+
 <div class="form">
-    <div class="form_title"></div>
-    <div class="form_form"></div>
+    <div class="form_title">
+        <div class="form_title_big">整体营业月度趋势图</div>
+        <div class="form_title_little">
+            <img src="images/blue.png" alt="">
+            店面销售总额
+        </div>
+        <div class="form_title_little">
+            <img src="images/orange.png" alt="">
+            外卖平台销售总额
+        </div>
+    </div>
+    <div class="form_form" id="container"></div>
 </div>
 <div class="day">
-    <div class="day_title"></div>
-    <div class="day_list"></div>
+    <div class="day_title">
+        <ul>
+            <li style="width: 81px;">排序</li>
+            <li class="li_center">店铺名称</li>
+            <li style="width: 125px;">日销售额</li>
+        </ul>
+    </div>
+    <div class="day_list">
+        <ul>
+            <li style="width: 81px;"><span style="background: #ff5722;">1</span></li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;"><span style="background: #ff9800;">2</span></li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;"><span style="background: #ffc107;">3</span></li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">4</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">5</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">6</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">7</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">8</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">9</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">10</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+    </div>
 </div>
 <div class="hots">
-    <div class="hots_title"></div>
-    <div class="hots_list"></div>
+    <div class="hots_title">
+        <ul>
+            <li style="width: 81px;">排序</li>
+            <li class="li_center">店铺名称</li>
+            <li style="width: 125px;">日销售额</li>
+        </ul>
+    </div>
+    <div class="hots_list">
+        <ul>
+            <li style="width: 81px;"><span style="background: #ff5722;">1</span></li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;"><span style="background: #ff9800;">2</span></li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;"><span style="background: #ffc107;">3</span></li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">4</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">5</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">6</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">7</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">8</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">9</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+        <ul>
+            <li style="width: 81px;">10</li>
+            <li class="li_center">鱼火火(王**店）</li>
+            <li style="width: 125px;">¥23258</li>
+        </ul>
+    </div>
 </div>
 <div class="videos">
-    <div class="videos_list"></div>
-    <div class="videos_list"></div>
-    <div class="videos_list"></div>
-    <div class="videos_list"></div>
+    <div class="videos_list">
+        <video class="videos_little" autoplay loop muted>
+            <source src="video/video3.mp4" type="video/mp4" >
+        </video>
+        <img src="images/videos.png" alt="">
+    </div>
+    <div class="videos_list">
+        <video class="videos_little" autoplay loop muted>
+            <source src="video/video3.mp4" type="video/mp4" >
+        </video>
+        <img src="images/videos.png" alt="">
+    </div>
+    <div class="videos_list">
+        <video class="videos_little" autoplay loop muted>
+            <source src="video/video3.mp4" type="video/mp4" >
+        </video>
+        <img src="images/videos.png" alt="">
+    </div>
+    <div class="videos_list">
+        <video class="videos_little" autoplay loop muted>
+            <source src="video/video3.mp4" type="video/mp4" >
+        </video>
+        <img src="images/videos.png" alt="">
+    </div>
 </div>
+<script>
+    var bgColor = '#000000';
+    var containers = document.getElementsByClassName('chart');
+    var options = [{
+        series: [{
+            type: 'liquidFill',
+            data: [0.3,{
+                value: 0.35,
+                direction: 'left',
+                itemStyle: {
+                    normal: {
+                        color: '#07349e',
+                    }
+                }
+            }],
+            color:['#02192d'],
+            radius: '100%',
+            outline: {
+                show: false
+            },
+            backgroundStyle: {
+                opacity: 0
+            },
+            label:{
+                color: '#ffffff',
+                fontSize: 43,
+                fontFamily: 'gb'
+            }
+        }]
+    }];
+    var charts = [];
+    for (var i = 0; i < options.length; ++i) {
+        var chart = echarts.init(containers[i]);
+        if (i > 0) {
+            options[i].series[0].silent = true;
+        }
+        chart.setOption(options[i]);
+        chart.setOption({
+            baseOption: options[i],
+            media: [{
+                query: {
+                    maxWidth: 300
+                },
+                option: {
+                    series: [{
+                        label: {
+                            fontSize: 50
+                        }
+                    }]
+                }
+            }]
+        });
+        charts.push(chart);
+    }
+
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    var dataAxis = ['9月', '10月', '11月', '12月', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月'];
+    var data = [220, 182, 191, 234, 290, 330, 310, 123, 589, 321, 90, 149, 210, 122];
+    var yMax = 600;
+    var dataShadow = [];
+
+    for (var i = 0; i < data.length; i++) {
+        dataShadow.push(yMax);
+    }
+
+    option = {
+        xAxis: {
+            data: dataAxis,
+            axisLabel: {
+                // inside: true,
+                textStyle: {
+                    color: '#ffffff'
+                }
+            },
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            z: 10
+        },
+        yAxis: {
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#ffffff'
+                }
+            },
+            splitLine: {
+                show: false
+            }
+        },
+        // dataZoom: [
+        //     {
+        //         type: 'inside'
+        //     }
+        // ],
+        series: [
+            { // For shadow
+                type: 'bar',
+                itemStyle: {
+                    normal: {color: 'rgba(0,0,0,0.05)'}
+                },
+                barGap:'-100%',
+                barCategoryGap:'40%',
+                data: dataShadow,
+                // animation: false,
+                fontSize: 16
+            },
+            {
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: '#fb5723'},
+                                {offset: 0.3, color: '#0e9391'},
+                                {offset: 1, color: '#15fcf8'}
+                            ]
+                        ),
+                        opacity: 0.9
+                    },
+                    // emphasis: {
+                    //     color: new echarts.graphic.LinearGradient(
+                    //         0, 0, 0, 1,
+                    //         [
+                    //             {offset: 0, color: '#15fcf8'},
+                    //             {offset: 0.3, color: '#0e9391'},
+                    //             {offset: 1, color: '#fb5723'}
+                    //         ]
+                    //     )
+                    // },
+                },
+                data: data,
+                fontSize: 16
+            }
+        ]
+    };
+
+    // Enable data zoom when user click bar.
+    var zoomSize = 6;
+    myChart.on('click', function (params) {
+        console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+        myChart.dispatchAction({
+            type: 'dataZoom',
+            startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+            endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+        });
+    });;
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
 </body>
 </html>
