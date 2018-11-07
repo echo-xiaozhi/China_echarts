@@ -103,15 +103,17 @@ html{
 }
 .roll .roll-content {
     width: 368px;
-    height: 192px;
+    height: 199px;
     margin: 0 auto;
     margin-top: 15px;
+    overflow: hidden;
 }
 .roll .roll-content ul li{
     width: 368px;
     border-bottom: 1px dashed #26303d;
     height: 32px;
     font-size: 13px;
+    overflow: hidden;
 }
 .roll .roll-content ul li div{
     width: 368px;
