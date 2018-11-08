@@ -50,7 +50,6 @@
     var map = L.map('container');
     var overlay = new L.echartsLayer3(map, echarts);
     var chartsContainer = overlay.getEchartsContainer();
-
     var geoCoordMap = {
         '合肥市': [117.25,31.83],
         '芜湖市': [118.38,31.33],
@@ -508,7 +507,7 @@
         return res;
     };
 
-    // var color = ['#fa7c2a', '#ffffff', '#46bee9'];
+    var color = ['#fa7c2a', '#ffffff', '#46bee9'];
     var series = [];
 
     var refreshData = function (node) {
@@ -583,12 +582,12 @@
                         color: '#fb7c29'
                     }
                 },
-                data: node.map(function (dataItem) {
-                    return {
-                        name: dataItem.name,
-                        value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
-                    };
-                })
+                // data: node.map(function (dataItem) {
+                //     return {
+                //         name: dataItem.name,
+                //         // value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+                //     };
+                // })
             }];
         myChart.setOption(option);
     };

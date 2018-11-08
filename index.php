@@ -5,7 +5,7 @@ require __DIR__ . '/PHPExcel/IOFactory.php';
 
 $PHPReader = new PHPExcel_Reader_Excel2007();
 
-$filePath = __DIR__ . '/cs.xlsx';
+$filePath = __DIR__ . '/goods.xlsx';
 
 //判断文件类型
 if (!$PHPReader->canRead($filePath)) {
@@ -38,31 +38,31 @@ for ($currentRow = 1; $currentRow <= $allRow; ++$currentRow) {
         $date[$currentRow - 1][] = $val;
     }
 }
-
+//var_dump($date);
 $endData = [];
 foreach ($date as $key => $val) {
 //    $data = [
 //        'cityPosition' => "'" . $val[2] . "': [" . $val[4] . ',' . $val[5] . "],\r\n",
 //    ];
     $data = [
-        'city' => $val[2],
-        'position' => $val[4] . ',' . $val[5]
+        'shop' => "{name: '".$val[0]."', value: ".$val[1]."},\r\n"
     ];
     array_push($endData, $data);
 }
-$endData = removeDuplicate($endData);
-//var_dump($endData);
-$enddData = [];
-for ($i = 1; $i < count($endData); $i++) {
-    $data = [
-        'cityPosition' => "'" . $endData[$i]['city'] . "': [" . $endData[$i]['position'] . "],\r\n",
-    ];
-    array_push($enddData, $data);
-}
 
+//$endData = removeDuplicate($endData);
+//var_dump($endData);
+//$enddData = [];
+//for ($i = 1; $i < count($endData); $i++) {
+//    $data = [
+//        'cityPosition' => "'" . $endData[$i]['city'] . "': [" . $endData[$i]['position'] . "],\r\n",
+//    ];
+//    array_push($enddData, $data);
+//}
+//var_dump($enddData);
 $file = 'log.txt';//要写入文件的文件名（可以是任意文件名），如果文件不存在，将会创建一个
-for ($i = 0; $i < count($enddData); $i++) {
-    file_put_contents($file, $enddData[$i]['cityPosition'], FILE_APPEND);
+for ($i = 1; $i < count($endData); $i++) {
+    file_put_contents($file, $endData[$i]['shop'], FILE_APPEND);
 }
 
 function removeDuplicate($array)
