@@ -857,3 +857,24 @@ html {
     font: 84px/80px "ld";
     color: #ddf0ff;
 }
+/* svg图标样式位置 */
+.jinan{
+    position: absolute;
+    top: 483px;
+    right: 593px;
+}
+.chongqing{
+    position: absolute;
+    top: 686px;
+    right: 828px;
+}
+.guangzhou{
+    position: absolute;
+    top: 873px;
+    right: 676px;
+}
+.nanjing{
+    position: absolute;
+    top: 615px;
+    right: 554px;
+}
