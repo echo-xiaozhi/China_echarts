@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="echarts/echarts.min.js"></script>
     <script src='echarts/echarts-liquidfill.min.js'></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
 <video class="video_player" autoplay loop muted>
@@ -14,26 +16,16 @@
 <div class="food">
     <div class="food_title">今日外卖总订单数：</div>
     <div class="food_num">
-        <span>6</span>
-        <span>5</span>
-        <span>9</span>
-        <span>9</span>
-        <span>3</span>
-        <div class="food_font">单</div>
+
     </div>
+    <div class="food_font">单</div>
 </div>
 <div class="money">
     <div class="money_title">今日外卖营业总额：</div>
     <div class="money_num">
-        <span>9</span>
-        <span>8</span>
-        <span>6</span>
-        <span>5</span>
-        <span>6</span>
-        <span>3</span>
-        <span>4</span>
-        <div class="money_font">元</div>
+
     </div>
+    <div class="money_font">元</div>
 </div>
 
 <div class="chart"></div>
@@ -62,117 +54,19 @@
         </ul>
     </div>
     <div class="day_list">
-        <ul>
-            <li style="width: 81px;"><span style="background: #ff5722;">1</span></li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;"><span style="background: #ff9800;">2</span></li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;"><span style="background: #ffc107;">3</span></li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">4</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">5</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">6</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">7</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">8</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">9</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">10</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
+
     </div>
 </div>
 <div class="hots">
     <div class="hots_title">
         <ul>
             <li style="width: 81px;">排序</li>
-            <li class="li_center">店铺名称</li>
+            <li class="li_center">商品名称</li>
             <li style="width: 125px;">日销售额</li>
         </ul>
     </div>
     <div class="hots_list">
-        <ul>
-            <li style="width: 81px;"><span style="background: #ff5722;">1</span></li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;"><span style="background: #ff9800;">2</span></li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;"><span style="background: #ffc107;">3</span></li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">4</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">5</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">6</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">7</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">8</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">9</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
-        <ul>
-            <li style="width: 81px;">10</li>
-            <li class="li_center">鱼火火(王**店）</li>
-            <li style="width: 125px;">¥23258</li>
-        </ul>
+
     </div>
 </div>
 <div class="videos">
@@ -202,6 +96,298 @@
     </div>
 </div>
 <script>
+    var foodInitMoney = 0;
+    var hotInitMoney = 0;
+    var takeFoodData = [
+        {name: '贝克汉堡（0053号店）', value: foodInitMoney},
+        {name: '壹點壹（0073号店）', value: foodInitMoney},
+        {name: '柠檬工坊（0027号店）', value: foodInitMoney},
+        {name: '让爱翻滚（0085号店）', value: foodInitMoney},
+        {name: '张一碗（0157号店）', value: foodInitMoney},
+        {name: '锅先森（0138号店）', value: foodInitMoney},
+        {name: '米姑娘（0082号店）', value: foodInitMoney},
+        {name: '瓦罐香沸（0194号店）', value: foodInitMoney},
+        {name: '姥娘包子（0046号店）', value: foodInitMoney},
+        {name: '贝克汉堡（0037号店）', value: foodInitMoney},
+        {name: '壹點壹（0053号店）', value: foodInitMoney},
+        {name: '柠檬工坊（0051号店）', value: foodInitMoney},
+        {name: '让爱翻滚（0047号店）', value: foodInitMoney},
+        {name: '张一碗（0063号店）', value: foodInitMoney},
+        {name: '锅先森（0089号店）', value: foodInitMoney},
+        {name: '米姑娘（0072号店）', value: foodInitMoney},
+        {name: '瓦罐香沸（0086号店）', value: foodInitMoney},
+        {name: '贝克汉堡（0074号店）', value: foodInitMoney},
+        {name: '壹點壹（0060号店）', value: foodInitMoney},
+        {name: '柠檬工坊（0095号店）', value: foodInitMoney},
+        {name: '让爱翻滚（0091号店）', value: foodInitMoney},
+        {name: '张一碗（0040号店）', value: foodInitMoney},
+        {name: '锅先森（0059号店）', value: foodInitMoney},
+        {name: '米姑娘（0099号店）', value: foodInitMoney},
+        {name: '贝克汉堡（0047号店）', value: foodInitMoney},
+        {name: '壹點壹（0160号店）', value: foodInitMoney},
+        {name: '柠檬工坊（0058号店）', value: foodInitMoney},
+        {name: '让爱翻滚（0066号店）', value: foodInitMoney},
+        {name: '张一碗（0079号店）', value: foodInitMoney},
+        {name: '锅先森（0105号店）', value: foodInitMoney},
+        {name: '贝克汉堡（0170号店）', value: foodInitMoney},
+        {name: '壹點壹（0070号店）', value: foodInitMoney},
+        {name: '柠檬工坊（0093号店）', value: foodInitMoney},
+        {name: '让爱翻滚（0056号店）', value: foodInitMoney},
+        {name: '张一碗（0089号店）', value: foodInitMoney},
+        {name: '锅先森（0152号店）', value: foodInitMoney},
+        {name: '贝克汉堡（0136号店）', value: foodInitMoney},
+        {name: '壹點壹（0153号店）', value: foodInitMoney},
+        {name: '张一碗（0119号店）', value: foodInitMoney},
+        {name: '锅先森（0042号店）', value: foodInitMoney},
+    ];
+    var takeHotData = [
+        {name: '招牌金汤米线套餐', value: hotInitMoney},
+        {name: '招牌金汤米线', value: hotInitMoney},
+        {name: '原味鸡腿堡', value: hotInitMoney},
+        {name: '泡菜过桥米线套餐', value: hotInitMoney},
+        {name: '原味过桥米线', value: hotInitMoney},
+        {name: '壹點壹香香鸡', value: hotInitMoney},
+        {name: '壹點壹香辣鸡翅', value: hotInitMoney},
+        {name: '黑金鸡块', value: hotInitMoney},
+        {name: '扬州炒饭', value: hotInitMoney},
+        {name: '香辣鸡腿堡', value: hotInitMoney},
+        {name: '瓦罐红烧肉套餐', value: hotInitMoney},
+        {name: '台式香辣排骨', value: hotInitMoney},
+        {name: '台式香菇滑鸡', value: hotInitMoney},
+        {name: '台式卤肉饭', value: hotInitMoney},
+        {name: '台式黑椒鸡翅', value: hotInitMoney},
+        {name: '台式干锅鸭', value: hotInitMoney},
+        {name: '酸汤鱼', value: hotInitMoney},
+        {name: '酸辣过桥米线套餐', value: hotInitMoney},
+        {name: '酸菜过桥米线', value: hotInitMoney},
+        {name: '排骨大包', value: hotInitMoney},
+        {name: '糯米丸子', value: hotInitMoney},
+        {name: '柠檬水', value: hotInitMoney},
+        {name: '咖喱蒸鸡', value: hotInitMoney},
+        {name: '咖喱脆骨炒饭', value: hotInitMoney},
+        {name: '金桔柠檬', value: hotInitMoney},
+        {name: '金桔蜜柚', value: hotInitMoney},
+        {name: '酱肉大包', value: hotInitMoney},
+        {name: '鸡腿堡套餐', value: hotInitMoney},
+        {name: '黄金酸辣米线', value: hotInitMoney},
+        {name: '黑椒蒸排骨', value: hotInitMoney},
+        {name: '甘梅地瓜条', value: hotInitMoney},
+        {name: '蜂蜜柚子茶', value: hotInitMoney},
+        {name: '番茄过桥米线', value: hotInitMoney},
+        {name: '豉汁排骨', value: hotInitMoney},
+        {name: '菠萝腰果炒饭', value: hotInitMoney},
+        {name: '碧海蓝天', value: hotInitMoney},
+        {name: '全家福大包', value: hotInitMoney},
+        {name: '爆汁脆脆鸡', value: hotInitMoney},
+        {name: '白灼西兰花', value: hotInitMoney},
+        {name: '奥尔良烤鸡腿堡', value: hotInitMoney},
+    ];
+    var minShopMoney = 10;
+    var maxShopMoney = 500;
+    var minGoodMoney = 300;
+    var maxGoodMoney = 1000;
+    var minSecond = 1000;
+    var maxSecond = 10000;
+    var dayList = $('.day_list');
+    var hotsList = $('.hots_list');
+    var randomNumMax = 5;
+    var randomNumMix = 1;
+    var randomOrderMax = 100;
+    var randomOrderMix = 80;
+    //随机获取几个
+    function getRandomNum(){
+        var randomNum = Math.floor(Math.random() * (randomNumMax - randomNumMix) + randomNumMix);
+        return randomNum;
+    }
+    //随机获取几个
+    function getRandomNumOrder(){
+        var randomNum = Math.floor(Math.random() * (randomOrderMax - randomOrderMix) + randomOrderMix);
+        return randomNum;
+    }
+    //得到店铺随机钱数
+    function getFoodRandomNum() {
+        var randomNum = Math.floor(Math.random() * (maxShopMoney - minShopMoney) + minShopMoney);
+        return randomNum;
+    }
+
+    //得到商品随机钱数
+    function getHotRandomNum() {
+        var randomNum = Math.floor(Math.random() * (maxGoodMoney - minGoodMoney) + minGoodMoney);
+        return randomNum;
+    }
+
+    // 从数组中取出某几个元素 取出值删除原数组值 重新合并到原数组
+    function getRandomArrayElementsFood(arr, count) {
+        var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+        while (i-- > min) {
+            index = Math.floor((i + 1) * Math.random());
+            temp = shuffled[index];
+            arr.splice(index, 1);
+            shuffled[index] = shuffled[i];
+            shuffled[i] = temp;
+        }
+        var randomData = shuffled.slice(min);
+
+        for (var z = 0; z < randomData.length; z++) {
+            var name = randomData[z].name;
+            var endValue = randomData[z].value + getFoodRandomNum();
+            var endArr = {name: name, value: endValue};
+            randomData.splice(z, 1, endArr);
+            arr.push(randomData[z]);
+        }
+        return arr;
+    }
+    // 从数组中取出某几个元素 取出值删除原数组值 重新合并到原数组
+    function getRandomArrayElementsHot(arr, count) {
+        var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+        while (i-- > min) {
+            index = Math.floor((i + 1) * Math.random());
+            temp = shuffled[index];
+            arr.splice(index, 1);
+            shuffled[index] = shuffled[i];
+            shuffled[i] = temp;
+        }
+        var randomData = shuffled.slice(min);
+
+        for (var z = 0; z < randomData.length; z++) {
+            var name = randomData[z].name;
+            var endValue = randomData[z].value + getHotRandomNum();
+            var endArr = {name: name, value: endValue};
+            randomData.splice(z, 1, endArr);
+            arr.push(randomData[z]);
+        }
+        return arr;
+    }
+
+    //最终数组写入页面 商店
+    function insertFoodPage(data) {
+        var Temp = 0;
+        var length = data.length;
+        for (var i = 0; i < length; i++) {
+            for (var j = i + 1; j < length; j++) {
+                if (data[i].value < data[j].value) {
+                    Temp = data[i];
+                    data[i] = data[j];
+                    data[j] = Temp;
+                }
+            }
+        }
+        dayList.html('');
+        for (z = 0; z < data.length; z++) {
+            var str = '<ul>\n' +
+                '            <li style="width: 81px;"><span>' + (z + 1) + '</span></li>\n' +
+                '            <li class="li_center">' + data[z].name + '</li>\n' +
+                '            <li>¥' + data[z].value + '</li>\n' +
+                '        </ul>';
+            dayList.append(str);
+        }
+    }
+
+    //最终数组写入页面 商品
+    function insertHotPage(data) {
+        var Temp = 0;
+        var length = data.length;
+        for (var i = 0; i < length; i++) {
+            for (var j = i + 1; j < length; j++) {
+                if (data[i].value < data[j].value) {
+                    Temp = data[i];
+                    data[i] = data[j];
+                    data[j] = Temp;
+                }
+            }
+        }
+        hotsList.html('');
+        for (z = 0; z < data.length; z++) {
+            var str = '<ul>\n' +
+                '            <li style="width: 81px;"><span>' + (z + 1) + '</span></li>\n' +
+                '            <li class="li_center">' + data[z].name + '</li>\n' +
+                '            <li>¥' + data[z].value + '</li>\n' +
+                '        </ul>';
+            hotsList.append(str);
+        }
+    }
+
+    // 得到随机数组，赋值，重新写入 商店
+    function handleFood(data) {
+        var randomNum = getRandomNum();
+        var arr = getRandomArrayElementsFood(data, randomNum);
+        insertFoodPage(arr);
+    }
+
+    // 得到随机数组，赋值，重新写入 商品
+    function handleHot(data) {
+        var randomNum = getRandomNum();
+        var arr = getRandomArrayElementsHot(data, randomNum);
+        insertHotPage(arr);
+    }
+
+    // 随机秒数
+    function setRandomTime() {
+        var randomTime = Math.floor(Math.random() * (maxSecond - minSecond) + minSecond);
+        return randomTime;
+    }
+
+    // 先把原始数据添加进去 商店
+    for (z = 0; z < takeFoodData.length; z++) {
+        var str = '<ul>\n' +
+            '            <li style="width: 81px;"><span>' + (z + 1) + '</span></li>\n' +
+            '            <li class="li_center">' + takeFoodData[z].name + '</li>\n' +
+            '            <li>¥' + takeFoodData[z].value + '</li>\n' +
+            '        </ul>';
+        dayList.append(str);
+    }
+
+    // 先把原始数据添加进去 商品
+    for (z = 0; z < takeHotData.length; z++) {
+        var str = '<ul>\n' +
+            '            <li style="width: 81px;"><span>' + (z + 1) + '</span></li>\n' +
+            '            <li class="li_center">' + takeHotData[z].name + '</li>\n' +
+            '            <li>¥' + takeHotData[z].value + '</li>\n' +
+            '        </ul>';
+        hotsList.append(str);
+    }
+
+    function togther() {
+        var time = setRandomTime();
+        time1 = setInterval(function () {
+            handleFood(takeFoodData);
+            handleHot(takeHotData);
+            clearInterval(time1);
+            togther();
+        },time);
+
+        var foodResult = 0;
+        for(var i = 0; i < takeFoodData.length; i++) {
+            foodResult += takeFoodData[i].value;
+        }
+        var hotResult = 0;
+        for(var i = 0; i < takeHotData.length; i++) {
+            hotResult += takeHotData[i].value;
+        }
+
+        var num = foodResult + hotResult;
+        $(".money_num").rollNum({
+            deVal: num,
+            digit: 7
+        });
+    }
+
+    togther();
+    var foodTime = setRandomTime();
+    var foodNum = 0;
+    $(".food_num").rollNum({
+        deVal: 00000,
+        digit: 5
+    });
+    setInterval(function () {
+        var orderNum = getRandomNumOrder();
+        foodNum = foodNum + orderNum;
+        $(".food_num").rollNum({
+            deVal: foodNum,
+            digit: 5
+        });
+    }, foodTime);
+
     var bgColor = '#000000';
     var containers = document.getElementsByClassName('chart');
     var options = [{

@@ -418,7 +418,7 @@
             var key = "user|" + orderNum;
             var options = {};
             options[key] = [{
-                'city': '@city', // 城市名
+                'city': '@cityx', // 城市名
                 'name': '@cfirst()**', // 姓名
                 'order': '@natural(10, 40)**@natural(100, 500)', // 订单号
                 'number': '@natural(10, 40)***@natural(100, 500)' // 物流单号
@@ -582,12 +582,12 @@
                         color: '#fb7c29'
                     }
                 },
-                // data: node.map(function (dataItem) {
-                //     return {
-                //         name: dataItem.name,
-                //         // value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
-                //     };
-                // })
+                data: node.map(function (dataItem) {
+                    return {
+                        name: dataItem.name,
+                        value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+                    };
+                })
             }];
         myChart.setOption(option);
     };

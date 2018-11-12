@@ -421,19 +421,19 @@ html {
     font-size: 30px;
 }
 
-.food .food_num span {
-    margin-top: 21px;
-    background: url("../images/num.png");
-    background-size: contain;
-    width: 54px;
-    height: 80px;
-    display: block;
-    float: left;
-    margin-right: 13px;
-    font-size: 84px;
-    line-height: 81px;
-    color: #ffffff;
-}
+/*.food .food_num span {*/
+    /*margin-top: 21px;*/
+    /*background: url("../images/num.png");*/
+    /*background-size: contain;*/
+    /*width: 54px;*/
+    /*height: 80px;*/
+    /*display: block;*/
+    /*float: left;*/
+    /*margin-right: 13px;*/
+    /*font-size: 84px;*/
+    /*line-height: 81px;*/
+    /*color: #ffffff;*/
+/*}*/
 
 .food .food_num .food_font {
     float: left;
@@ -442,7 +442,7 @@ html {
 }
 
 .food {
-    width: 368px;
+    width: 370px;
     height: 143px;
     color: #15fffa;
     font-family: ld, shscr;
@@ -455,21 +455,25 @@ html {
     font-size: 30px;
 }
 
-.food .food_num span {
-    margin-top: 21px;
-    background: url("../images/num.png");
-    background-size: contain;
-    width: 54px;
-    height: 79px;
-    display: block;
+.food .food_num{
+    width: 340px;
     float: left;
-    margin-right: 13px;
-    font-size: 84px;
-    line-height: 81px;
-    color: #ffffff;
 }
+/*.food .food_num span {*/
+    /*margin-top: 21px;*/
+    /*background: url("../images/num.png");*/
+    /*background-size: contain;*/
+    /*width: 54px;*/
+    /*height: 79px;*/
+    /*display: block;*/
+    /*float: left;*/
+    /*margin-right: 13px;*/
+    /*font-size: 84px;*/
+    /*line-height: 81px;*/
+    /*color: #ffffff;*/
+/*}*/
 
-.food .food_num .food_font {
+.food .food_font {
     float: left;
     font-size: 30px;
     margin-top: 65px;
@@ -488,22 +492,25 @@ html {
 .money .money_title {
     font-size: 30px;
 }
-
-.money .money_num span {
-    margin-top: 21px;
-    background: url("../images/num.png");
-    background-size: contain;
-    width: 54px;
-    height: 79px;
-    display: block;
+.money .money_num{
+    width: 476px;
     float: left;
-    margin-right: 13px;
-    font-size: 84px;
-    line-height: 81px;
-    color: #ffffff;
 }
+/*.money .money_num span {*/
+    /*margin-top: 21px;*/
+    /*background: url("../images/num.png");*/
+    /*background-size: contain;*/
+    /*width: 54px;*/
+    /*height: 79px;*/
+    /*display: block;*/
+    /*float: left;*/
+    /*margin-right: 13px;*/
+    /*font-size: 84px;*/
+    /*line-height: 81px;*/
+    /*color: #ffffff;*/
+/*}*/
 
-.money .money_num .money_font {
+.money .money_font {
     float: left;
     font-size: 30px;
     margin-top: 65px;
@@ -587,6 +594,8 @@ html {
     width: 368px;
     margin: 0 auto;
     margin-top: 20px;
+    height: 346px;
+    overflow: hidden;
 }
 
 .day .day_list ul {
@@ -601,6 +610,8 @@ html {
     font-size: 14px;
     text-align: center;
     margin-top: 5px;
+    height: 22px;
+    overflow: hidden;
 }
 
 .day .day_list li span {
@@ -615,7 +626,25 @@ html {
 }
 
 .day .day_list .li_center {
-    width: 160px;
+    width: 140px;
+    text-align: left;
+    padding-left: 20px;
+}
+.day .day_list ul:first-child li:first-child span {
+    background: #ff5722;
+}
+
+.day .day_list ul:nth-child(2) li:first-child span {
+    background: #ff9800;
+}
+
+.day .day_list ul:nth-child(3) li:first-child span {
+    background: #ffc107;
+}
+.day .day_list ul li:nth-child(3) {
+    text-align: right;
+    padding-right: 30px;
+    width: 95px;
 }
 
 .hots {
@@ -655,6 +684,8 @@ html {
     width: 368px;
     margin: 0 auto;
     margin-top: 20px;
+    height: 346px;
+    overflow: hidden;
 }
 
 .hots .hots_list ul {
@@ -669,6 +700,8 @@ html {
     font-size: 14px;
     text-align: center;
     margin-top: 5px;
+    height: 22px;
+    overflow: hidden;
 }
 
 .hots .hots_list li span {
@@ -683,7 +716,25 @@ html {
 }
 
 .hots .hots_list .li_center {
-    width: 160px;
+    width: 140px;
+    text-align: left;
+    padding-left: 20px;
+}
+.hots .hots_list ul:first-child li:first-child span {
+    background: #ff5722;
+}
+
+.hots .hots_list ul:nth-child(2) li:first-child span {
+    background: #ff9800;
+}
+
+.hots .hots_list ul:nth-child(3) li:first-child span {
+    background: #ffc107;
+}
+.hots .hots_list ul li:nth-child(3) {
+    text-align: right;
+    padding-right: 30px;
+    width: 95px;
 }
 
 .videos {
