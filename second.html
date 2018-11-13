@@ -53,20 +53,6 @@
 <script type="text/javascript" src="echarts/china2.js"></script>
 
 <script type="text/javascript">
-    // window.onload = function () {
-    //     var ck = new Cookie("HasLoaded");  //每个页面的new Cookie名HasLoaded不能相同
-    //     if (ck.Read() == null) {//未加载过，Cookie内容为空
-    //         alert("首次打开页面");
-    //         var dd = new Date();
-    //         dd = new Date(dd.getYear() + 1900, dd.getMonth(), dd.getDate());
-    //         dd.setDate(dd.getDate() + 365);
-    //         ck.setExpiresTime(dd);
-    //         ck.Write("true");  //设置Cookie。只要IE不关闭，Cookie就一直存在
-    //     }
-    //     else {
-    //         alert("页面刷新");
-    //     }
-    // };
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var app = {};
@@ -365,6 +351,7 @@
             top: 26,
             width: 1385,
             height: 1020,
+            silent: true,
             label: {
                 emphasis: {
                     show: false
@@ -640,7 +627,23 @@
         myChart.setOption(option, true);
     }
 
-
+    setInterval(function () {
+        var cityData = datas();
+        var cityDatas = randomExtraction(cityData);
+        option = {
+            series: [
+                {
+                    data: convertData(cityDatas),
+                },
+                {
+                    data: convertData(cityDatas.sort(function (a, b) {
+                        return b.value - a.value;
+                    }).slice(0, 6)),
+                }
+            ]
+        }
+        myChart.setOption(option);
+    },6000)
 </script>
 </body>
 </html>
