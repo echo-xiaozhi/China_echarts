@@ -53,6 +53,20 @@
 <script type="text/javascript" src="echarts/china2.js"></script>
 
 <script type="text/javascript">
+    // window.onload = function () {
+    //     var ck = new Cookie("HasLoaded");  //每个页面的new Cookie名HasLoaded不能相同
+    //     if (ck.Read() == null) {//未加载过，Cookie内容为空
+    //         alert("首次打开页面");
+    //         var dd = new Date();
+    //         dd = new Date(dd.getYear() + 1900, dd.getMonth(), dd.getDate());
+    //         dd.setDate(dd.getDate() + 365);
+    //         ck.setExpiresTime(dd);
+    //         ck.Write("true");  //设置Cookie。只要IE不关闭，Cookie就一直存在
+    //     }
+    //     else {
+    //         alert("页面刷新");
+    //     }
+    // };
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var app = {};
@@ -64,8 +78,8 @@
     var maxShopMoney = 500;
     var minGoodMoney = 300;
     var maxGoodMoney = 1000;
-    var minSecond = 1000;
-    var maxSecond = 10000;
+    var minSecond = 10000;
+    var maxSecond = 20000;
     var shopInitMoney = 0;
     var goodInitMoney = 0;
     var shopDatas = [

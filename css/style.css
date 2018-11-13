@@ -32,9 +32,12 @@ html {
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     list-style: none;
+}
+body{
+    position: relative;
 }
 
 .clear {
@@ -124,6 +127,7 @@ html {
     margin: 0 auto;
     margin-top: 15px;
     overflow: hidden;
+    font-family: gb, shscr;
 }
 
 .roll .roll-content ul li {
@@ -165,7 +169,7 @@ html {
 }
 
 .video .video_little {
-    position: fixed;
+    position: absolute;
     height: 268px;
     width: 482px;
     z-index: 0;
@@ -856,6 +860,10 @@ html {
     height: 100%;
     font: 84px/80px "ld";
     color: #ddf0ff;
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 84px;
 }
 /* svg图标样式位置 */
 .jinan{
