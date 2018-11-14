@@ -1,14 +1,19 @@
 function randomExtraction(data) {
-    var index = Math.floor((Math.random()*data.length));
-    var value = data[index];
-    value.value = 200;
-    data.splice(index, 1, value);
+    var maxValue = 160;
+    var minValue = 100;
+    for (i = 0; i < 5; i++) {
+        var index = Math.floor((Math.random()*data.length));
+        var value = data[index];
+        var dataValue = Math.floor(Math.random()*(maxValue - minValue) + minValue);
+        value.value = dataValue;
+        data.splice(index, 1, value);
+    }
     return data;
 }
 
 function datas() {
     var data = [
-        {name: '松江国际新兴大街5马路53号', value: 200},
+        {name: '松江国际新兴大街5马路53号', value: 160},
         {name: '致和时代广场入口处', value: 147},
         {name: '工业街与开元路交汇处金海汇购物广场1楼东门处', value: 114},
         {name: '友谊东街天怡小区大门东100米路南', value: 109},

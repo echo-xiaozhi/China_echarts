@@ -151,7 +151,24 @@ body{
     text-align: center;
     line-height: 31px;
 }
-
+.roll .roll-content .roll_list li div span:first-child{
+    text-align: left;
+    padding-left: 10px;
+    width: 80px;
+    overflow: hidden;
+}
+.roll .roll-content .roll_list li div span:nth-child(2){
+    text-align: left;
+    padding-left: 20px;
+    width: 70px;
+    overflow: hidden;
+}
+.roll .roll-content .roll_list li div span:nth-child(3), .roll .roll-content .roll_list li div span:nth-child(4){
+    text-align: right;
+    padding-right: 15px;
+    width: 75px;
+    overflow: hidden;
+}
 .video {
     width: 482px;
     height: 268px;
@@ -324,7 +341,7 @@ body{
     height: 460px;
     position: absolute;
     right: 60px;
-    bottom: 50px;
+    bottom: 45px;
     background: url("../images/hot.png");
     background-size: contain;
     font-family: gb, shscr;
@@ -655,7 +672,7 @@ body{
     width: 402px;
     height: 460px;
     position: absolute;
-    bottom: 35px;
+    top: 570px;
     right: 524px;
     background: url("../images/hots.png");
     background-size: contain;
@@ -746,7 +763,7 @@ body{
     height: 1080px;
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 0;
     /*background: url("../images/video.png");*/
     /*background-size: contain;*/
 }
@@ -764,7 +781,7 @@ body{
 }
 
 .videos .videos_list .videos_little {
-    position: fixed;
+    position: absolute;
     height: 268px;
     width: 482px;
     z-index: 0;

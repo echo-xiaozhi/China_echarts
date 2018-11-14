@@ -60,8 +60,8 @@
     var map = L.map('container');
     var overlay = new L.echartsLayer3(map, echarts);
     var chartsContainer = overlay.getEchartsContainer();
-    var minShopMoney = 10;
-    var maxShopMoney = 500;
+    var minShopMoney = 200;
+    var maxShopMoney = 666;
     var minGoodMoney = 300;
     var maxGoodMoney = 1000;
     var minSecond = 10000;
@@ -141,6 +141,64 @@
     var hotList = $('.hot_list');
     var randomNumMax = 5;
     var randomNumMix = 1;
+    var peakData = [10, 13];
+    var thirdPeakData = [13.1, 17];
+    var secondPeakData = [17.1, 20];
+    var timeListMoney = [
+        {time: 0, moeny: 0},
+        {time: 1, moeny: 0},
+        {time: 2, moeny: 0},
+        {time: 3, moeny: 0},
+        {time: 4, moeny: 0},
+        {time: 5, moeny: 1707},
+        {time: 6, moeny: 18777},
+        {time: 7, moeny: 104130},
+        {time: 8, moeny: 274837},
+        {time: 9, moeny: 530898},
+        {time: 10, moeny: 536019},
+        {time: 11, moeny: 621372},
+        {time: 12, moeny: 4035522},
+        {time: 13, moeny: 4889059},
+        {time: 14, moeny: 5059766},
+        {time: 15, moeny: 5080250},
+        {time: 16, moeny: 5088785},
+        {time: 17, moeny: 5093906},
+        {time: 18, moeny: 5401179},
+        {time: 19, moeny: 6766839},
+        {time: 20, moeny: 8473914},
+        {time: 21, moeny: 8559276},
+        {time: 22, moeny: 8564388},
+        {time: 23, moeny: 8566093},
+    ];
+    var myDate = new Date();
+    var hours = myDate.getHours(); //获取当前小时数(0-23)
+    var timeMoney = timeListMoney[hours].moeny;
+    // 获取到当前时刻应该有的钱数
+    var shopAllMoney = Math.round(timeMoney * 0.4), goodAllMoney = Math.round(timeMoney * 0.6);
+    // 随机分配给每个店铺，每个商品
+    var shopLength = shopDatas.length, goodLength = goodDatas.length;
+    // 定义初始值
+    for (i = 0; i < shopLength; i++) {
+        var randomMoney = Math.floor(Math.random() * shopAllMoney * 0.1);
+        shopAllMoney -= randomMoney;
+        var value = shopDatas[i];
+        value.value = randomMoney;
+        shopDatas.splice(i, 1, value);
+    }
+    for (i = 0; i < goodLength; i++) {
+        var randomMoney = Math.floor(Math.random() * goodAllMoney * 0.1);
+        goodAllMoney -= randomMoney;
+        var value = goodDatas[i];
+        value.value = randomMoney;
+        goodDatas.splice(i, 1, value);
+    }
+    // 判断此时小时是否在某个区间内
+    function inHours(arr, hours) {
+        if (hours >= arr[0] && hours <= arr[1]) {
+            return true;
+        }
+        return false;
+    }
 
     //随机获取几个
     function getRandomNum(){
@@ -149,12 +207,38 @@
     }
     //得到店铺随机钱数
     function getShopRandomNum() {
+        var startHours = myDate.getHours();
+        if (inHours(peakData, startHours)) {
+            var minShopMoney = 600;
+            var maxShopMoney = 1998;
+        }
+        if (inHours(secondPeakData, startHours)) {
+            var minShopMoney = 400;
+            var maxShopMoney = 1332;
+        }
+        if (inHours(thirdPeakData, startHours)) {
+            var minShopMoney = 300;
+            var maxShopMoney = 999;
+        }
         var randomNum = Math.floor(Math.random() * (maxShopMoney - minShopMoney) + minShopMoney);
         return randomNum;
     }
 
     //得到商品随机钱数
     function getGoodRandomNum() {
+        var startHours = myDate.getHours();
+        if (inHours(peakData, startHours)) {
+            var minGoodMoney = 900;
+            var maxGoodMoney = 3000;
+        }
+        if (inHours(secondPeakData, startHours)) {
+            var minGoodMoney = 600;
+            var maxGoodMoney = 2000;
+        }
+        if (inHours(thirdPeakData, startHours)) {
+            var minGoodMoney = 450;
+            var maxGoodMoney = 1500;
+        }
         var randomNum = Math.floor(Math.random() * (maxGoodMoney - minGoodMoney) + minGoodMoney);
         return randomNum;
     }
@@ -266,6 +350,19 @@
 
     // 随机秒数
     function setRandomTime() {
+        var startHours = myDate.getHours();
+        if (inHours(peakData, startHours)) {
+            var minSecond = 7000;
+            var maxSecond = 17000;
+        }
+        if (inHours(secondPeakData, startHours)) {
+            var minSecond = 8000;
+            var maxSecond = 18000;
+        }
+        if (inHours(thirdPeakData, startHours)) {
+            var minSecond = 9000;
+            var maxSecond = 19000;
+        }
         var randomTime = Math.floor(Math.random() * (maxSecond - minSecond) + minSecond);
         return randomTime;
     }
@@ -317,6 +414,7 @@
 
     togther();
 
+
     var data = datas();
     var geoCoordMap = geoCoordMap();
 
@@ -362,7 +460,7 @@
                     areaColor: '#2a333d',
                     borderWidth: 0
                 },
-                opacity: 0.8
+                opacity: 0.9
             },
             regions: [{
                 name: '北京',
@@ -643,7 +741,7 @@
             ]
         }
         myChart.setOption(option);
-    },6000)
+    },10000)
 </script>
 </body>
 </html>
