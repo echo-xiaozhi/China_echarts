@@ -1,11 +1,20 @@
+var oldPointDatas = []
 function randomExtraction(data) {
     var maxValue = 160;
     var minValue = 100;
+    oldPointDatas = [];
     for (i = 0; i < 5; i++) {
         var index = Math.floor((Math.random()*data.length));
         var value = data[index];
         var dataValue = Math.floor(Math.random()*(maxValue - minValue) + minValue);
+
+        oldPointDatas.push({
+            name: value.name,
+            value: value.value
+        })
+        // console.log(value);
         value.value = dataValue;
+        // console.log(value);
         data.splice(index, 1, value);
     }
     return data;

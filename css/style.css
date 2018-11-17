@@ -44,10 +44,10 @@ body{
     clear: both;
 }
 
-.video_player {
+.video_player1 {
     position: fixed;
-    right: 0px;
-    bottom: 0px;
+    top: -1080px;
+    left: 0;
     min-width: 100%;
     min-height: 100%;
     height: auto;
@@ -58,7 +58,47 @@ body{
     /*filter:grayscale(100%);*/
 }
 
-.video_player source {
+.video_player1 source {
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+}
+.video_player2 {
+    position: fixed;
+    top: -1080px;
+    left: -1920px;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+    z-index: -9999;
+    /*加滤镜*/
+    /*-webkit-filter: grayscale(100%);*/
+    /*filter:grayscale(100%);*/
+}
+
+.video_player2 source {
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+}
+.video_player3 {
+    position: fixed;
+    top: -1080px;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+    z-index: -9999;
+    /*加滤镜*/
+    /*-webkit-filter: grayscale(100%);*/
+    /*filter:grayscale(100%);*/
+}
+
+.video_player3 source {
     min-width: 100%;
     min-height: 100%;
     height: auto;
@@ -902,4 +942,12 @@ body{
     position: absolute;
     top: 615px;
     right: 554px;
+}
+.mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -998;
+    background: #000;
+    opacity: 0.6;
 }

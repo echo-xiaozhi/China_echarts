@@ -6,13 +6,24 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="echarts/main.min.js"></script>
     <script src="js/jquery.min.js"></script>
-    <script src="js/data.js"></script>
+    <!-- <script src="js/data.js"></script> -->
     <script src="js/index.js"></script>
+    <script src="js/data/data.json"></script>
+    <script src="js/data/store.json"></script>
+    <!--<link href="css/animate.css" rel="stylesheet">-->
+    <style>
+    /*.animated {*/
+    /*-webkit-animation-duration: .25s;*/
+    /*animation-duration: .25s;*/
+    /*-webkit-animation-fill-mode: both;*/
+    /*animation-fill-mode: both;*/
+    /*}*/
+    </style>
 </head>
 
 <body style="width: 100%;height: 100%; margin: 0">
 <div class="mask"></div>
-<video class="video_player2" style="width: 5760px; height: 3240px;"  autoplay loop muted>
+<video class="video_player" autoplay loop muted>
     <source src="video/video3.mp4" type="video/mp4">
 </video>
 <div id="container" style="height: 100%"></div>
@@ -48,25 +59,14 @@
 
     </div>
 </div>
-<div id="dataNums" style="color: #fff;"> </div>
+<div id="dataNums" style="color: #fff;"></div>
 
 <script type="text/javascript" src="echarts/echarts.min.js"></script>
 <script type="text/javascript" src="echarts/china2.js"></script>
+<script src="js/second.js"></script>
+<!--<script src="js/scrollNum.js"></script>-->
 
-<script type="text/javascript">
-    var dom = document.getElementById("container");
-    var myChart = echarts.init(dom);
-    var app = {};
-    option = null;
-    var map = L.map('container');
-    var overlay = new L.echartsLayer3(map, echarts);
-    var chartsContainer = overlay.getEchartsContainer();
-    var minShopMoney = 200;
-    var maxShopMoney = 666;
-    var minGoodMoney = 300;
-    var maxGoodMoney = 1000;
-    var minSecond = 10000;
-    var maxSecond = 20000;
+<script>
     var shopInitMoney = 0;
     var goodInitMoney = 0;
     var shopDatas = [
@@ -193,6 +193,7 @@
         value.value = randomMoney;
         goodDatas.splice(i, 1, value);
     }
+
     // 判断此时小时是否在某个区间内
     function inHours(arr, hours) {
         if (hours >= arr[0] && hours <= arr[1]) {
@@ -200,11 +201,13 @@
         }
         return false;
     }
+
     //随机获取几个
-    function getRandomNum(){
+    function getRandomNum() {
         var randomNum = Math.floor(Math.random() * (randomNumMax - randomNumMix) + randomNumMix);
         return randomNum;
     }
+
     //得到店铺随机钱数
     function getShopRandomNum() {
         var minShopMoney = 66;
@@ -225,6 +228,7 @@
         var randomNum = Math.floor(Math.random() * (maxShopMoney - minShopMoney) + minShopMoney);
         return randomNum;
     }
+
     //得到商品随机钱数
     function getGoodRandomNum() {
         var minGoodMoney = 100;
@@ -245,6 +249,7 @@
         var randomNum = Math.floor(Math.random() * (maxGoodMoney - minGoodMoney) + minGoodMoney);
         return randomNum;
     }
+
     // 从数组中取出某几个元素 取出值删除原数组值 重新合并到原数组
     function getRandomArrayElementsShop(arr, count) {
         var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
@@ -256,6 +261,7 @@
             shuffled[i] = temp;
         }
         var randomData = shuffled.slice(min);
+
         for (var z = 0; z < randomData.length; z++) {
             var name = randomData[z].name;
             var endValue = randomData[z].value + getShopRandomNum();
@@ -265,6 +271,7 @@
         }
         return arr;
     }
+
     // 从数组中取出某几个元素 取出值删除原数组值 重新合并到原数组
     function getRandomArrayElementsGood(arr, count) {
         var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
@@ -276,6 +283,7 @@
             shuffled[i] = temp;
         }
         var randomData = shuffled.slice(min);
+
         for (var z = 0; z < randomData.length; z++) {
             var name = randomData[z].name;
             var endValue = randomData[z].value + getGoodRandomNum();
@@ -285,18 +293,21 @@
         }
         return arr;
     }
+
     // 得到随机数组，赋值，重新写入 商店
     function handleShop(data) {
         var randomNum = getRandomNum();
         var arr = getRandomArrayElementsShop(data, randomNum);
         insertShopPage(arr);
     }
+
     // 得到随机数组，赋值，重新写入 商品
     function handleGood(data) {
         var randomNum = getRandomNum();
         var arr = getRandomArrayElementsGood(data, randomNum);
         insertGoodPage(arr);
     }
+
     //最终数组写入页面 商店
     function insertShopPage(data) {
         var Temp = 0;
@@ -320,6 +331,7 @@
             proList.append(str);
         }
     }
+
     //最终数组写入页面 商品
     function insertGoodPage(data) {
         var Temp = 0;
@@ -343,8 +355,11 @@
             hotList.append(str);
         }
     }
+
     // 随机秒数
     function setRandomTime() {
+        var minSecond = 10000;
+        var maxSecond = 20000;
         var startHours = myDate.getHours();
         if (inHours(peakData, startHours)) {
             var minSecond = 7000;
@@ -361,11 +376,13 @@
         var randomTime = Math.floor(Math.random() * (maxSecond - minSecond) + minSecond);
         return randomTime;
     }
+
     // 先把原始数据添加进去 商店
     handleShop(shopDatas);
 
     // 先把原始数据添加进去 商品
     handleGood(goodDatas);
+
     function togther() {
         var time = setRandomTime();
         time1 = setInterval(function () {
@@ -373,346 +390,29 @@
             handleShop(shopDatas);
             clearInterval(time1);
             togther();
-        },time);
+        }, time);
+
         var goodResult = 0;
-        for(var i = 0; i < goodDatas.length; i++) {
+        for (var i = 0; i < goodDatas.length; i++) {
             goodResult += goodDatas[i].value;
         }
         var shopResult = 0;
-        for(var i = 0; i < shopDatas.length; i++) {
+        for (var i = 0; i < shopDatas.length; i++) {
             shopResult += shopDatas[i].value;
         }
-        var num = goodResult + shopResult;
+
+        var num = (goodResult + shopResult).toString();
+        // console.log(num);
+        //写入上方滚动
+        // scrollNum.setNumber(num);
+
         $(".num_num").rollNum({
             deVal: num,
             digit: 7
         });
     }
+
     togther();
-    var data = datas();
-    var geoCoordMap = geoCoordMap();
-    var convertData = function (data) {
-        var res = [];
-        for (var i = 0; i < data.length; i++) {
-            var geoCoord = geoCoordMap[data[i].name];
-            if (geoCoord) {
-                res.push({
-                    // name: data[i].name, // 文字
-                    value: geoCoord.concat(data[i].value)
-                });
-            }
-        }
-        return res;
-    };
-    option = {
-        title: {
-            // text: '测试',
-            x: 'center',
-            textStyle: {
-                color: '#fff'
-            }
-        },
-        tooltip: {
-            trigger: 'item'
-        },
-        geo: {
-            map: 'china2',
-            left: 319,
-            top: 26,
-            width: 1385,
-            height: 1020,
-            silent: true,
-            label: {
-                emphasis: {
-                    show: false
-                }
-            },
-            itemStyle: {
-                emphasis: {
-                    areaColor: '#2a333d',
-                    borderWidth: 0
-                },
-                opacity: 1
-            },
-            regions: [{
-                name: '北京',
-                itemStyle: {
-                    areaColor: '#06487a',
-                    borderWidth: 0
-                }
-            }, {
-                name: '山东',
-                itemStyle: {
-                    areaColor: '#042161',
-                    borderWidth: 0
-                }
-            }, {
-                name: '黑龙江',
-                itemStyle: {
-                    areaColor: '#0c8a9e',
-                    borderWidth: 0
-                }
-            }, {
-                name: '内蒙古',
-                itemStyle: {
-                    areaColor: '#096a8e',
-                    borderWidth: 0
-                }
-            }, {
-                name: '吉林',
-                itemStyle: {
-                    areaColor: '#0b809a',
-                    borderWidth: 0
-                }
-            }, {
-                name: '辽宁',
-                itemStyle: {
-                    areaColor: '#05366b',
-                    borderWidth: 0
-                }
-            }, {
-                name: '河北',
-                itemStyle: {
-                    areaColor: '#042a64',
-                    borderWidth: 0
-                }
-            }, {
-                name: '天津',
-                itemStyle: {
-                    areaColor: '#0a7897',
-                    borderWidth: 0
-                }
-            }, {
-                name: '陕西',
-                itemStyle: {
-                    areaColor: '#064075',
-                    borderWidth: 0
-                }
-            }, {
-                name: '山西',
-                itemStyle: {
-                    areaColor: '#08658c',
-                    borderWidth: 0
-                }
-            }, {
-                name: '宁夏',
-                itemStyle: {
-                    areaColor: '#0c8fa8',
-                    borderWidth: 0
-                }
-            }, {
-                name: '新疆',
-                itemStyle: {
-                    areaColor: '#0c8da4',
-                    borderWidth: 0
-                }
-            }, {
-                name: '青海',
-                itemStyle: {
-                    areaColor: '#0c96ae',
-                    borderWidth: 0
-                }
-            }, {
-                name: '甘肃',
-                itemStyle: {
-                    areaColor: '#0b82a1',
-                    borderWidth: 0
-                }
-            }, {
-                name: '河南',
-                itemStyle: {
-                    areaColor: '#031f5f',
-                    borderWidth: 0
-                }
-            }, {
-                name: '湖北',
-                itemStyle: {
-                    areaColor: '#096a8f',
-                    borderWidth: 0
-                }
-            }, {
-                name: '湖南',
-                itemStyle: {
-                    areaColor: '#085f85',
-                    borderWidth: 0
-                }
-            }, {
-                name: '四川',
-                itemStyle: {
-                    areaColor: '#06527f',
-                    borderWidth: 0
-                }
-            }, {
-                name: '广东',
-                itemStyle: {
-                    areaColor: '#06527f',
-                    borderWidth: 0
-                }
-            }, {
-                name: '海南',
-                itemStyle: {
-                    areaColor: '#0b7d96',
-                    borderWidth: 0
-                }
-            }, {
-                name: '台湾',
-                itemStyle: {
-                    areaColor: '#0a7d9a',
-                    borderWidth: 0
-                }
-            }, {
-                name: '福建',
-                itemStyle: {
-                    areaColor: '#03205c',
-                    borderWidth: 0
-                }
-            }, {
-                name: '上海',
-                itemStyle: {
-                    areaColor: '#0a7997',
-                    borderWidth: 0
-                }
-            }, {
-                name: '西藏',
-                itemStyle: {
-                    areaColor: '#0c91a6',
-                    borderWidth: 0
-                }
-            }, {
-                name: '香港',
-                itemStyle: {
-                    areaColor: '#031c58',
-                    borderWidth: 0
-                }
-            }, {
-                name: '江苏',
-                itemStyle: {
-                    areaColor: '#061e5d',
-                    borderWidth: 0
-                }
-            }, {
-                name: '安徽',
-                itemStyle: {
-                    areaColor: '#053b70',
-                    borderWidth: 0
-                }
-            }, {
-                name: '浙江',
-                itemStyle: {
-                    areaColor: '#074977',
-                    borderWidth: 0
-                }
-            }, {
-                name: '江西',
-                itemStyle: {
-                    areaColor: '#096c8d',
-                    borderWidth: 0
-                }
-            }, {
-                name: '重庆',
-                itemStyle: {
-                    areaColor: '#096d90',
-                    borderWidth: 0
-                }
-            }, {
-                name: '贵州',
-                itemStyle: {
-                    areaColor: '#0b7997',
-                    borderWidth: 0
-                }
-            }, {
-                name: '广西',
-                itemStyle: {
-                    areaColor: '#074875',
-                    borderWidth: 0
-                }
-            }, {
-                name: '云南',
-                itemStyle: {
-                    areaColor: '#096b8c',
-                    borderWidth: 0
-                }
-            }]
-        },
-        series: [
-            {
-                name: 'pm2.5',
-                type: 'scatter',
-                coordinateSystem: 'geo',
-                data: convertData(data),
-                symbolSize: function (val) {
-                    return val[2] / 10;
-                },
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: false
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: '#13e3e7'
-                    }
-                }
-            },
-            {
-                name: 'Top 5',
-                type: 'effectScatter',
-                coordinateSystem: 'geo',
-                // 外圈+文字
-                data: convertData(data.sort(function (a, b) {
-                    return b.value - a.value;
-                }).slice(0, 6)),
-                symbolSize: function (val) {
-                    return val[2] / 10;
-                },
-                showEffectOn: 'render',
-                rippleEffect: {
-                    brushType: 'fill'
-                },
-                hoverAnimation: true,
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: '#13e3e7',
-                        shadowBlur: 10,
-                        shadowColor: '#333'
-                    }
-                },
-                zlevel: 1
-            }
-        ]
-    };
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-    }
-    setInterval(function () {
-        var cityData = datas();
-        var cityDatas = randomExtraction(cityData);
-        option = {
-            series: [
-                {
-                    data: convertData(cityDatas),
-                },
-                {
-                    data: convertData(cityDatas.sort(function (a, b) {
-                        return b.value - a.value;
-                    }).slice(0, 6)),
-                }
-            ]
-        }
-        myChart.setOption(option);
-    },10000)
 </script>
 </body>
 </html>

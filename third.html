@@ -9,8 +9,9 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/index.js"></script>
 </head>
-<body>
-<video class="video_player" autoplay loop muted>
+<body style="width: 100%;height: 100%; margin: 0">
+<div class="mask"></div>
+<video class="video_player3" style="width: 5760px; height: 3240px;"  autoplay loop muted>
     <source src="video/video3.mp4" type="video/mp4" >
 </video>
 <div class="food">
@@ -182,12 +183,6 @@
         {name: '白灼西兰花', value: hotInitMoney},
         {name: '奥尔良烤鸡腿堡', value: hotInitMoney},
     ];
-    var minShopMoney = 60;
-    var maxShopMoney = 200;
-    var minGoodMoney = 90;
-    var maxGoodMoney = 300;
-    var minSecond = 10000;
-    var maxSecond = 20000;
     var dayList = $('.day_list');
     var hotsList = $('.hots_list');
     var randomNumMax = 5;
@@ -263,18 +258,20 @@
     }
     //得到店铺随机钱数
     function getFoodRandomNum() {
+        var minShopMoney = 20;
+        var maxShopMoney = 66;
         var startHours = myDate.getHours();
         if (inHours(peakData, startHours)) {
-            var minShopMoney = 180;
-            var maxShopMoney = 600;
+            var minShopMoney = 60;
+            var maxShopMoney = 200;
         }
         if (inHours(secondPeakData, startHours)) {
-            var minShopMoney = 120;
-            var maxShopMoney = 400;
+            var minShopMoney = 40;
+            var maxShopMoney = 133;
         }
         if (inHours(thirdPeakData, startHours)) {
-            var minShopMoney = 90;
-            var maxShopMoney = 300;
+            var minShopMoney = 30;
+            var maxShopMoney = 100;
         }
         var randomNum = Math.floor(Math.random() * (maxShopMoney - minShopMoney) + minShopMoney);
         return randomNum;
@@ -282,20 +279,20 @@
 
     //得到商品随机钱数
     function getHotRandomNum() {
-        var minGoodMoney = 90;
-        var maxGoodMoney = 300;
+        var minGoodMoney = 30;
+        var maxGoodMoney = 100;
         var startHours = myDate.getHours();
         if (inHours(peakData, startHours)) {
-            var minGoodMoney = 270;
-            var maxGoodMoney = 900;
+            var minGoodMoney = 90;
+            var maxGoodMoney = 300;
         }
         if (inHours(secondPeakData, startHours)) {
-            var minGoodMoney = 180;
-            var maxGoodMoney = 600;
+            var minGoodMoney = 60;
+            var maxGoodMoney = 200;
         }
         if (inHours(thirdPeakData, startHours)) {
-            var minGoodMoney = 135;
-            var maxGoodMoney = 450;
+            var minGoodMoney = 45;
+            var maxGoodMoney = 150;
         }
         var randomNum = Math.floor(Math.random() * (maxGoodMoney - minGoodMoney) + minGoodMoney);
         return randomNum;
@@ -408,6 +405,8 @@
 
     // 随机秒数
     function setRandomTime() {
+        var minSecond = 10000;
+        var maxSecond = 20000;
         var startHours = myDate.getHours();
         if (inHours(peakData, startHours)) {
             var minSecond = 7000;
@@ -426,24 +425,10 @@
     }
 
     // 先把原始数据添加进去 商店
-    for (z = 0; z < takeFoodData.length; z++) {
-        var str = '<ul>\n' +
-            '            <li style="width: 81px;"><span>' + (z + 1) + '</span></li>\n' +
-            '            <li class="li_center">' + takeFoodData[z].name + '</li>\n' +
-            '            <li>¥' + takeFoodData[z].value + '</li>\n' +
-            '        </ul>';
-        dayList.append(str);
-    }
+    handleFood(takeFoodData);
 
     // 先把原始数据添加进去 商品
-    for (z = 0; z < takeHotData.length; z++) {
-        var str = '<ul>\n' +
-            '            <li style="width: 81px;"><span>' + (z + 1) + '</span></li>\n' +
-            '            <li class="li_center">' + takeHotData[z].name + '</li>\n' +
-            '            <li>¥' + takeHotData[z].value + '</li>\n' +
-            '        </ul>';
-        hotsList.append(str);
-    }
+    handleHot(takeHotData);
 
     var bgColor = '#000000';
     var containers = document.getElementsByClassName('chart');
@@ -555,7 +540,7 @@
     var app = {};
     option = null;
     var dataAxis = ['9月', '10月', '11月', '12月', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月'];
-    var data = [3317.5, 3851.8, 3675.5, 3689.2, 1950, 2000, 3098.6, 3024.5, 3320.7, 3400.6, 3343.2, 3516.1, 3446.9, 2885.9];
+    var data = [3317.5, 3851.8, 3675.5, 3689.2, 3124.58, 2855.11, 2790.11, 3024.5, 3320.7, 3400.6, 3343.2, 3516.1, 3446.9, 2885.9];
     var yMax = 4000;
     var dataShadow = [];
 

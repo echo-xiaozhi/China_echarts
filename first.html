@@ -9,7 +9,8 @@
     <script src="js/mock.js"></script>
 </head>
 <body style="width: 100%;height: 100%; margin: 0">
-<video class="video_player" width="5760px" height="1080px" autoplay loop muted>
+<div class="mask"></div>
+<video class="video_player1" style="width: 5760px; height: 3240px;" autoplay loop muted>
     <source src="video/video3.mp4" type="video/mp4">
 </video>
 <div id="container" style="height: 100%"></div>
@@ -41,8 +42,8 @@
     <svg width="60px" height="60px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
         <circle id="Oval1" fill="rgb(249,124,46)" cx="100" cy="100" r="10">
-            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite'/>
-            <animate attributeName="r" from="10" to="100" dur="1s" begin='0s' values="0; 20; 100" repeatCount="indefinite"/>
+            <animate attributeName='opacity' from='1' to='0' dur='5s' begin='0s' repeatCount='indefinite'/>
+            <animate attributeName="r" from="10" to="100" dur="5s" begin='0s' values="0; 20; 100" repeatCount="indefinite"/>
         </circle>
 
 
@@ -56,8 +57,6 @@
             <animate attributeName='opacity' from='1' to='0' dur='5s' begin='2s' repeatCount='indefinite'/>
             <animate attributeName="r" from="10" to="100" dur="5s" begin='2s' values="0; 20; 100" repeatCount="indefinite"/>
         </circle>
-
-
     </svg>
 </div>
 <div class="guangzhou">
@@ -70,8 +69,8 @@
 
 
         <circle id="Oval1" fill="rgb(249,124,46)" cx="100" cy="100" r="10">
-            <animate attributeName='opacity' from='1' to='0' dur='2s' begin='1s' repeatCount='indefinite'/>
-            <animate attributeName="r" from="10" to="100" dur="2s" begin='1s' values="0; 20; 100" repeatCount="indefinite"/>
+            <animate attributeName='opacity' from='1' to='0' dur='5s' begin='1s' repeatCount='indefinite'/>
+            <animate attributeName="r" from="10" to="100" dur="5s" begin='1s' values="0; 20; 100" repeatCount="indefinite"/>
         </circle>
 
 
@@ -99,8 +98,8 @@
 
 
         <circle id="Oval1" fill="rgb(249,124,46)" cx="100" cy="100" r="10">
-            <animate attributeName='opacity' from='1' to='0' dur='3s' begin='2s' repeatCount='indefinite'/>
-            <animate attributeName="r" from="10" to="100" dur="3s" begin='2s' values="0; 20; 100" repeatCount="indefinite"/>
+            <animate attributeName='opacity' from='1' to='0' dur='5s' begin='2s' repeatCount='indefinite'/>
+            <animate attributeName="r" from="10" to="100" dur="5s" begin='2s' values="0; 20; 100" repeatCount="indefinite"/>
         </circle>
 
 
@@ -122,8 +121,8 @@
 
 
         <circle id="Oval1" fill="rgb(249,124,46)" cx="100" cy="100" r="10">
-            <animate attributeName='opacity' from='1' to='0' dur='4s' begin='2s' repeatCount='indefinite'/>
-            <animate attributeName="r" from="10" to="100" dur="4s" begin='2s' values="0; 20; 100" repeatCount="indefinite"/>
+            <animate attributeName='opacity' from='1' to='0' dur='5s' begin='2s' repeatCount='indefinite'/>
+            <animate attributeName="r" from="10" to="100" dur="5s" begin='2s' values="0; 20; 100" repeatCount="indefinite"/>
         </circle>
 
 
@@ -497,7 +496,7 @@
     var orderUnitNumMin = 3;
     var depotNumMax = 4;
     var depotNumMin = 1;
-    var timeFrist = 6650;
+    var timeFrist = 7000;
     var timeLast = 8000;
     var clearTime = 6620;
     var jnX = geoCoordMap.济南市[0];
@@ -548,18 +547,19 @@
             }
         }
         refreshData(JNData);
-        if (i = 1) {
-            setTimeout(clearLines, clearTime + 9);
-        }
-        if (i = 2) {
-            setTimeout(clearLines, clearTime + 90);
-        }
-        if (i = 3) {
-            setTimeout(clearLines, clearTime + 161);
-        }
-        if (i = 4) {
-            setTimeout(clearLines, clearTime + 232);
-        }
+        setTimeout(clearLines, clearTime + 380);
+        // if (i = 1) {
+        //     setTimeout(clearLines, clearTime + 300);
+        // }
+        // if (i = 2) {
+        //     setTimeout(clearLines, clearTime + 600);
+        // }
+        // if (i = 3) {
+        //     setTimeout(clearLines, clearTime + 900);
+        // }
+        // if (i = 4) {
+        //     setTimeout(clearLines, clearTime + 1200);
+        // }
     }
     // 向上滚动
     function autoscroll(obj) {
@@ -631,6 +631,7 @@
         //更新数据
         var option = myChart.getOption();
         option.series = [
+            // 线
             {
                 // name: item[0] + ' Top10',
                 type: 'lines',
@@ -653,6 +654,7 @@
                 },
                 data: convertData(node)
             },
+            // 飞机
             {
                 // name: item[0] + ' Top10',
                 type: 'lines',
@@ -675,6 +677,7 @@
                 },
                 data: convertData(node),
             },
+            // 飞线动画 控制点
             {
                 // name: item[0] + ' Top10',
                 type: 'effectScatter',
@@ -691,9 +694,10 @@
                         // formatter: '{b}'
                     }
                 },
-                // symbolSize: function (val) {
-                //     return val / 8;
-                // },
+                // 点大小
+                symbolSize: function (val) {
+                    return 4;
+                },
                 itemStyle: {
                     normal: {
                         color: '#fb7c29'
@@ -747,7 +751,7 @@
                     areaColor: '#2a333d',
                     borderWidth: 0
                 },
-                opacity: 0.9
+                opacity: 1
             },
             regions: [{
                 name: '北京',

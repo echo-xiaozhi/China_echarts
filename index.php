@@ -41,14 +41,14 @@ for ($currentRow = 1; $currentRow <= $allRow; ++$currentRow) {
 //var_dump($date);
 $endData = [];
 foreach ($date as $key => $val) {
-    if ($val[0] <= 26) {
-        $value = rand(1, 3);
-    }
-    if ($val[0] > 26) {
-        $value = round($val[0] / 25.795);
-    }
+//    if ($val[0] <= 26) {
+//        $value = rand(1, 3);
+//    }
+//    if ($val[0] > 26) {
+//        $value = round($val[0] / 25.795);
+//    }
     $data = [
-        'shop' => "{name: '".$val[1]."', value: ".$value."},\r\n"
+        'shop' => "{'name': '".$val[1]."', 'value': ".$val[0]."},\r\n"
     ];
     array_push($endData, $data);
 }

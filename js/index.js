@@ -19,7 +19,7 @@
             var valLen = options.digit ||  (options.deVal + '').length;
             if(obj.find('.'+options.className).length <= 0){
                 for(var i = 0; i<  valLen; i++){
-                    strHtml += '<li class="dataOne "><div class="dataBoc"><div class="tt" t="38"><span class="num0">0</span> <span class="num1">1</span> <span class="num2">2</span> <span class="num3">3</span> <span class="num4">4</span><span class="num5">5</span> <span class="num6">6</span> <span class="num7">7</span> <span class="num8">8</span> <span class="num9">9</span><span class="num0">0</span> <span class="num1">1</span> <span class="num2">2</span> <span class="num3">3</span> <span class="num4">4</span><span class="num5">5</span> <span class="num6">6</span> <span class="num7">7</span> <span class="num8">8</span> <span class="num9">9</span></div></div></li>';
+                    strHtml += '<li class="dataOne "><div class="dataBoc"><div class="tt" t="38"><span class="num0">0</span> <span class="num1">1</span> <span class="num2">2</span> <span class="num3">3</span> <span class="num4">4</span><span class="num5">5</span> <span class="num6">6</span> <span class="num7">7</span> <span class="num8">8</span> <span class="num9">9</span></div></div></li>';
                 }
                 strHtml += '</ul>';
                 obj.html(strHtml);
@@ -29,8 +29,7 @@
         scroNum: function(obj, options){
             var number = options.deVal;
 			var $num_item = $(obj).find('.' + options.className).find('.tt');
-            var h = $(obj).find('.dataBoc').height(); 
-          
+            var h = $(obj).find('.dataBoc').height();
             $num_item.css('transition','all 1s ease-in-out');
             var numberStr = number.toString();
             if(numberStr.length <= $num_item.length - 1){
@@ -43,8 +42,11 @@
 
             var numberArr = numberStr.split('');
             $num_item.each(function(i, item) {
+                // var spanNumber = numberArr[i];
+                // console.log(item.getElementsByTagName('span')[spanNumber]);
                 setTimeout(function(){
-                    $num_item.eq(i).css('top',-parseInt(numberArr[i])*h - h*10 + 'px');
+                    // $num_item.eq(i).animate({'top': -parseInt(numberArr[i])*h + 'px'}, 2000)
+                    $num_item.eq(i).css('top',-parseInt(numberArr[i])*h +'px');
                 },i*100)
             });
         }
