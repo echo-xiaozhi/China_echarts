@@ -1,72 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang=en>
 <head>
-    <meta charset="utf-8">
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <link rel=icon href=/favicon.ico>
     <title>第二屏</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="echarts/main.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/index.js"></script>
+    <link href=css/app.93e13122.css rel=preload as=style>
+    <link href=css/chunk-vendors.859d8c47.css rel=preload as=style>
+    <link href=js/app.6348a2ec.js rel=preload as=script>
+    <link href=js/chunk-vendors.9099035c.js rel=preload as=script>
+    <link href=css/chunk-vendors.859d8c47.css rel=stylesheet>
+    <link href=css/app.93e13122.css rel=stylesheet>
+    <link rel="stylesheet" href="css/second.css">
 </head>
+<body  style="width: 100%;height: 100%; margin: 0">
+<noscript><strong>We're sorry but map doesn't work properly without JavaScript enabled. Please enable it to
+    continue.</strong></noscript>
+<div id=app></div>
+<script src=js/chunk-vendors.9099035c.js></script>
+<script src=js/app.6348a2ec.js></script>
+<div class="big_box">
+    <div class="mask"></div>
+    <video class="video_player2" style="width: 5760px; height: 3240px;" autoplay loop muted>
+        <source src="video/video3.mp4" type="video/mp4">
+    </video>
+    <div id="container" style="height: 100%"></div>
+    <div class="font-left">新支点集团<br/>经营大数据</div>
+    <div class="num">
+        <div class="num_title">旗下品牌今日总销售额：</div>
+        <div class="num_num">
 
-<body style="width: 100%;height: 100%; margin: 0">
-<div class="mask"></div>
-<video class="video_player2" style="width: 5760px; height: 3240px;"  autoplay loop muted>
-    <source src="video/video3.mp4" type="video/mp4">
-</video>
-<div id="container" style="height: 100%"></div>
-<div class="font-left">新支点集团<br/>经营大数据</div>
-<div class="num">
-    <div class="num_title">旗下品牌今日总销售额：</div>
-    <div class="num_num">
-
+        </div>
+        <div class="num_font">元</div>
     </div>
-    <div class="num_font">元</div>
+    <div class="pro">
+        <div class="pro_title">
+            <ul>
+                <li style="width: 81px;">排序</li>
+                <li class="li_center">店铺名称</li>
+                <li style="width: 125px;">日销售额</li>
+            </ul>
+        </div>
+        <div class="pro_list">
+
+        </div>
+    </div>
+    <div class="hot">
+        <div class="hot_title">
+            <ul>
+                <li style="width: 81px;">排序</li>
+                <li class="li_center">商品名称</li>
+                <li style="width: 125px;">日销售额</li>
+            </ul>
+        </div>
+        <div class="hot_list">
+
+        </div>
+    </div>
 </div>
-<div class="pro">
-    <div class="pro_title">
-        <ul>
-            <li style="width: 81px;">排序</li>
-            <li class="li_center">店铺名称</li>
-            <li style="width: 125px;">日销售额</li>
-        </ul>
-    </div>
-    <div class="pro_list">
-
-    </div>
-</div>
-<div class="hot">
-    <div class="hot_title">
-        <ul>
-            <li style="width: 81px;">排序</li>
-            <li class="li_center">商品名称</li>
-            <li style="width: 125px;">日销售额</li>
-        </ul>
-    </div>
-    <div class="hot_list">
-
-    </div>
-</div>
-<div id="dataNums" style="color: #fff;"> </div>
-
-<script type="text/javascript" src="echarts/echarts.min.js"></script>
-<script type="text/javascript" src="echarts/china2.js"></script>
-
-<script type="text/javascript">
-    var dom = document.getElementById("container");
-    var myChart = echarts.init(dom);
-    var app = {};
-    option = null;
-    var map = L.map('container');
-    var overlay = new L.echartsLayer3(map, echarts);
-    var chartsContainer = overlay.getEchartsContainer();
-    var minShopMoney = 200;
-    var maxShopMoney = 666;
-    var minGoodMoney = 300;
-    var maxGoodMoney = 1000;
-    var minSecond = 10000;
-    var maxSecond = 20000;
+<script src=/js/chunk-vendors.9099035c.js></script>
+<script src=/js/app.db0ee040.js></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js"></script>
+<script>
     var shopInitMoney = 0;
     var goodInitMoney = 0;
     var shopDatas = [
@@ -346,6 +343,8 @@
     // 随机秒数
     function setRandomTime() {
         var startHours = myDate.getHours();
+        var minSecond = 10000;
+        var maxSecond = 20000;
         if (inHours(peakData, startHours)) {
             var minSecond = 7000;
             var maxSecond = 17000;
@@ -389,330 +388,6 @@
         });
     }
     togther();
-    var data = datas();
-    var geoCoordMap = geoCoordMap();
-    var convertData = function (data) {
-        var res = [];
-        for (var i = 0; i < data.length; i++) {
-            var geoCoord = geoCoordMap[data[i].name];
-            if (geoCoord) {
-                res.push({
-                    // name: data[i].name, // 文字
-                    value: geoCoord.concat(data[i].value)
-                });
-            }
-        }
-        return res;
-    };
-    option = {
-        title: {
-            // text: '测试',
-            x: 'center',
-            textStyle: {
-                color: '#fff'
-            }
-        },
-        tooltip: {
-            trigger: 'item'
-        },
-        geo: {
-            map: 'china2',
-            left: 319,
-            top: 26,
-            width: 1385,
-            height: 1020,
-            silent: true,
-            label: {
-                emphasis: {
-                    show: false
-                }
-            },
-            itemStyle: {
-                emphasis: {
-                    areaColor: '#2a333d',
-                    borderWidth: 0
-                },
-                opacity: 1
-            },
-            regions: [{
-                name: '北京',
-                itemStyle: {
-                    areaColor: '#06487a',
-                    borderWidth: 0
-                }
-            }, {
-                name: '山东',
-                itemStyle: {
-                    areaColor: '#042161',
-                    borderWidth: 0
-                }
-            }, {
-                name: '黑龙江',
-                itemStyle: {
-                    areaColor: '#0c8a9e',
-                    borderWidth: 0
-                }
-            }, {
-                name: '内蒙古',
-                itemStyle: {
-                    areaColor: '#096a8e',
-                    borderWidth: 0
-                }
-            }, {
-                name: '吉林',
-                itemStyle: {
-                    areaColor: '#0b809a',
-                    borderWidth: 0
-                }
-            }, {
-                name: '辽宁',
-                itemStyle: {
-                    areaColor: '#05366b',
-                    borderWidth: 0
-                }
-            }, {
-                name: '河北',
-                itemStyle: {
-                    areaColor: '#042a64',
-                    borderWidth: 0
-                }
-            }, {
-                name: '天津',
-                itemStyle: {
-                    areaColor: '#0a7897',
-                    borderWidth: 0
-                }
-            }, {
-                name: '陕西',
-                itemStyle: {
-                    areaColor: '#064075',
-                    borderWidth: 0
-                }
-            }, {
-                name: '山西',
-                itemStyle: {
-                    areaColor: '#08658c',
-                    borderWidth: 0
-                }
-            }, {
-                name: '宁夏',
-                itemStyle: {
-                    areaColor: '#0c8fa8',
-                    borderWidth: 0
-                }
-            }, {
-                name: '新疆',
-                itemStyle: {
-                    areaColor: '#0c8da4',
-                    borderWidth: 0
-                }
-            }, {
-                name: '青海',
-                itemStyle: {
-                    areaColor: '#0c96ae',
-                    borderWidth: 0
-                }
-            }, {
-                name: '甘肃',
-                itemStyle: {
-                    areaColor: '#0b82a1',
-                    borderWidth: 0
-                }
-            }, {
-                name: '河南',
-                itemStyle: {
-                    areaColor: '#031f5f',
-                    borderWidth: 0
-                }
-            }, {
-                name: '湖北',
-                itemStyle: {
-                    areaColor: '#096a8f',
-                    borderWidth: 0
-                }
-            }, {
-                name: '湖南',
-                itemStyle: {
-                    areaColor: '#085f85',
-                    borderWidth: 0
-                }
-            }, {
-                name: '四川',
-                itemStyle: {
-                    areaColor: '#06527f',
-                    borderWidth: 0
-                }
-            }, {
-                name: '广东',
-                itemStyle: {
-                    areaColor: '#06527f',
-                    borderWidth: 0
-                }
-            }, {
-                name: '海南',
-                itemStyle: {
-                    areaColor: '#0b7d96',
-                    borderWidth: 0
-                }
-            }, {
-                name: '台湾',
-                itemStyle: {
-                    areaColor: '#0a7d9a',
-                    borderWidth: 0
-                }
-            }, {
-                name: '福建',
-                itemStyle: {
-                    areaColor: '#03205c',
-                    borderWidth: 0
-                }
-            }, {
-                name: '上海',
-                itemStyle: {
-                    areaColor: '#0a7997',
-                    borderWidth: 0
-                }
-            }, {
-                name: '西藏',
-                itemStyle: {
-                    areaColor: '#0c91a6',
-                    borderWidth: 0
-                }
-            }, {
-                name: '香港',
-                itemStyle: {
-                    areaColor: '#031c58',
-                    borderWidth: 0
-                }
-            }, {
-                name: '江苏',
-                itemStyle: {
-                    areaColor: '#061e5d',
-                    borderWidth: 0
-                }
-            }, {
-                name: '安徽',
-                itemStyle: {
-                    areaColor: '#053b70',
-                    borderWidth: 0
-                }
-            }, {
-                name: '浙江',
-                itemStyle: {
-                    areaColor: '#074977',
-                    borderWidth: 0
-                }
-            }, {
-                name: '江西',
-                itemStyle: {
-                    areaColor: '#096c8d',
-                    borderWidth: 0
-                }
-            }, {
-                name: '重庆',
-                itemStyle: {
-                    areaColor: '#096d90',
-                    borderWidth: 0
-                }
-            }, {
-                name: '贵州',
-                itemStyle: {
-                    areaColor: '#0b7997',
-                    borderWidth: 0
-                }
-            }, {
-                name: '广西',
-                itemStyle: {
-                    areaColor: '#074875',
-                    borderWidth: 0
-                }
-            }, {
-                name: '云南',
-                itemStyle: {
-                    areaColor: '#096b8c',
-                    borderWidth: 0
-                }
-            }]
-        },
-        series: [
-            {
-                name: 'pm2.5',
-                type: 'scatter',
-                coordinateSystem: 'geo',
-                data: convertData(data),
-                symbolSize: function (val) {
-                    return val[2] / 10;
-                },
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: false
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: '#13e3e7'
-                    }
-                }
-            },
-            {
-                name: 'Top 5',
-                type: 'effectScatter',
-                coordinateSystem: 'geo',
-                // 外圈+文字
-                data: convertData(data.sort(function (a, b) {
-                    return b.value - a.value;
-                }).slice(0, 6)),
-                symbolSize: function (val) {
-                    return val[2] / 10;
-                },
-                showEffectOn: 'render',
-                rippleEffect: {
-                    brushType: 'fill'
-                },
-                hoverAnimation: true,
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: '#13e3e7',
-                        shadowBlur: 10,
-                        shadowColor: '#333'
-                    }
-                },
-                zlevel: 1
-            }
-        ]
-    };
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-    }
-    setInterval(function () {
-        var cityData = datas();
-        var cityDatas = randomExtraction(cityData);
-        option = {
-            series: [
-                {
-                    data: convertData(cityDatas),
-                },
-                {
-                    data: convertData(cityDatas.sort(function (a, b) {
-                        return b.value - a.value;
-                    }).slice(0, 6)),
-                }
-            ]
-        }
-        myChart.setOption(option);
-    },10000)
 </script>
 </body>
 </html>

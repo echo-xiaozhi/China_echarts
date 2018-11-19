@@ -39,6 +39,11 @@ html {
 body{
     position: relative;
 }
+.big_box{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 .clear {
     clear: both;
@@ -123,6 +128,8 @@ body{
     top: 83px;
     left: 75px;
     font-family: shscb;
+    width: 255px;
+    line-height: 68px;
 }
 
 .roll {
@@ -213,7 +220,7 @@ body{
     width: 482px;
     height: 268px;
     position: absolute;
-    right: 2px;
+    right: 0;
     bottom: 0;
     /*background: url("../images/video.png");*/
     /*background-size: contain;*/
@@ -225,10 +232,8 @@ body{
     z-index: 1;
 }
 
-.video .video_little, .video .video_little_plugin {
+.video .video_little {
     position: absolute;
-    right: 2px;
-    bottom: 0;
     height: 268px;
     width: 482px;
     z-index: 0;
@@ -236,11 +241,7 @@ body{
     /*-webkit-filter: grayscale(100%);*/
     /*filter:grayscale(100%);*/
 }
-.video .video_little_plugin object{
-    width: 100%;
-    height: 100%;
 
-}
 .video .video_little source {
     min-width: 100%;
     min-height: 100%;
@@ -252,7 +253,7 @@ body{
     width: 508px;
     height: 138px;
     position: absolute;
-    top: 83px;
+    top: 100px;
     left: 758px;
     color: #15fffa;
     font-family: ld, shscr;
@@ -287,7 +288,7 @@ body{
 .num .num_font {
     float: right;
     font-size: 30px;
-    margin-top: 65px;
+    margin-top: 72px;
 }
 
 .pro {
@@ -295,7 +296,7 @@ body{
     height: 460px;
     position: absolute;
     left: 60px;
-    bottom: 41px;
+    top: 579px;
     background: url("../images/pro.png");
     background-size: contain;
     font-family: gb, shscr;
@@ -308,6 +309,7 @@ body{
     background: #2e5776;
     margin: 0 auto;
     margin-top: 40px;
+    line-height: 21px;
 }
 
 .pro .pro_title li {
@@ -386,8 +388,8 @@ body{
     width: 402px;
     height: 460px;
     position: absolute;
-    right: 60px;
-    bottom: 45px;
+    left: 1458px;
+    top: 575px;
     background: url("../images/hot.png");
     background-size: contain;
     font-family: gb, shscr;
@@ -400,6 +402,7 @@ body{
     background: #2e5776;
     margin: 0 auto;
     margin-top: 40px;
+    line-height: 21px;
 }
 
 .hot .hot_title li {
@@ -951,9 +954,11 @@ body{
 }
 .mask{
     position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -998;
     background: #000;
     opacity: 0.6;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: -998;
 }
