@@ -8,8 +8,11 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/mock.js"></script>
 </head>
-<body style="width: 1920px;height: 1080px; overflow: hidden; margin: 0">
+<body style="width: 1920px;height: 1080px; overflow: hidden; margin: 0; background: #000000;">
 <div class="mask"></div>
+<div class="img_bak">
+    <img src="images/map.png" alt="">
+</div>
 <video class="video_player1" style="width: 5760px; height: 3240px;" autoplay loop muted>
     <source src="video/video3.mp4" type="video/mp4">
 </video>
@@ -32,7 +35,7 @@
         </div>
     </div>
 </div>
-<div class="video">
+<div class="video_img">
     <div class="video_little_plugin" id="plugConter"></div>
     <!--<img src="images/video.png" alt="">-->
 </div>
@@ -751,7 +754,7 @@
                     areaColor: '#2a333d',
                     borderWidth: 0
                 },
-                opacity: 1
+                opacity: 0
             },
             regions: [{
                 name: '北京',

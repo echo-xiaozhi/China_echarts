@@ -1,0 +1,5 @@
+var videoAddress = '{"videoAddress": [' +
+  '{"info" : "rtmp://rtmp.open.ys7.com/openlive/0fc281433ec948a796ca4cbb3e63544a.hd"},' +
+  '{"info" : "rtmp://rtmp.open.ys7.com/openlive/04d486b448ce47eb919fc7d0d7ab596f.hd"},' +
+  '{"info" : "rtmp://rtmp.open.ys7.com/openlive/3ef72b907985407691b596035103c6f8.hd"},' +
+  '{"info" : "rtmp://rtmp.open.ys7.com/openlive/325cbe6487dc4b9ba01880844607728a.hd"}]}';

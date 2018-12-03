@@ -14,7 +14,7 @@
     <link href=css/app.93e13122.css rel=stylesheet>
     <link rel="stylesheet" href="css/second.css">
 </head>
-<body  style="width: 100%;height: 100%; margin: 0">
+<body  style="width: 100%;height: 100%; margin: 0; background: #000000;">
 <noscript><strong>We're sorry but map doesn't work properly without JavaScript enabled. Please enable it to
     continue.</strong></noscript>
 <div id=app></div>
@@ -26,7 +26,7 @@
         <source src="video/video3.mp4" type="video/mp4">
     </video>
     <div id="container" style="height: 100%"></div>
-    <div class="font-left">新支点集团<br/>经营大数据</div>
+    <div class="font-left">源动力集团<br/>经营大数据</div>
     <div class="num">
         <div class="num_title">旗下品牌今日总销售额：</div>
         <div class="num_num">
@@ -39,7 +39,7 @@
             <ul>
                 <li style="width: 81px;">排序</li>
                 <li class="li_center">店铺名称</li>
-                <li style="width: 125px;">日销售额</li>
+                <li style="width: 125px;">日销售额(元)</li>
             </ul>
         </div>
         <div class="pro_list">
@@ -51,7 +51,7 @@
             <ul>
                 <li style="width: 81px;">排序</li>
                 <li class="li_center">商品名称</li>
-                <li style="width: 125px;">日销售额</li>
+                <li style="width: 125px;">日销售额(元)</li>
             </ul>
         </div>
         <div class="hot_list">
@@ -148,25 +148,25 @@
         {time: 2, moeny: 0},
         {time: 3, moeny: 0},
         {time: 4, moeny: 0},
-        {time: 5, moeny: 1707},
-        {time: 6, moeny: 18777},
-        {time: 7, moeny: 104130},
-        {time: 8, moeny: 274837},
-        {time: 9, moeny: 530898},
-        {time: 10, moeny: 536019},
-        {time: 11, moeny: 621372},
-        {time: 12, moeny: 4035522},
-        {time: 13, moeny: 4889059},
-        {time: 14, moeny: 5059766},
-        {time: 15, moeny: 5080250},
-        {time: 16, moeny: 5088785},
-        {time: 17, moeny: 5093906},
-        {time: 18, moeny: 5401179},
-        {time: 19, moeny: 6766839},
-        {time: 20, moeny: 8473914},
-        {time: 21, moeny: 8559276},
-        {time: 22, moeny: 8564388},
-        {time: 23, moeny: 8566093},
+        {time: 5, moeny: 15655},
+        {time: 6, moeny: 172206},
+        {time: 7, moeny: 954965},
+        {time: 8, moeny: 2520484},
+        {time: 9, moeny: 4868762},
+        {time: 10, moeny: 4915727},
+        {time: 11, moeny: 5698486},
+        {time: 12, moeny: 37008867},
+        {time: 13, moeny: 44836462},
+        {time: 14, moeny: 46401981},
+        {time: 15, moeny: 46589843},
+        {time: 16, moeny: 46668118},
+        {time: 17, moeny: 46715083},
+        {time: 18, moeny: 49533017},
+        {time: 19, moeny: 62057169},
+        {time: 20, moeny: 77712359},
+        {time: 21, moeny: 78495118},
+        {time: 22, moeny: 78542074},
+        {time: 23, moeny: 78567106},
     ];
     var myDate = new Date();
     var hours = myDate.getHours(); //获取当前小时数(0-23)
@@ -177,14 +177,14 @@
     var shopLength = shopDatas.length, goodLength = goodDatas.length;
     // 定义初始值
     for (i = 0; i < shopLength; i++) {
-        var randomMoney = Math.floor(Math.random() * shopAllMoney * 0.1);
+        var randomMoney = Math.floor(Math.random() * shopAllMoney * 0.087);
         shopAllMoney -= randomMoney;
         var value = shopDatas[i];
         value.value = randomMoney;
         shopDatas.splice(i, 1, value);
     }
     for (i = 0; i < goodLength; i++) {
-        var randomMoney = Math.floor(Math.random() * goodAllMoney * 0.1);
+        var randomMoney = Math.floor(Math.random() * goodAllMoney * 0.087);
         goodAllMoney -= randomMoney;
         var value = goodDatas[i];
         value.value = randomMoney;
@@ -312,7 +312,7 @@
             var str = '<ul>\n' +
                 '            <li style="width: 81px;"><span>' + (z + 1) + '</span></li>\n' +
                 '            <li class="li_center">' + data[z].name + '</li>\n' +
-                '            <li>¥' + data[z].value + '</li>\n' +
+                '            <li>' + Math.ceil((data[z].value) * 0.025) + '</li>\n' +
                 '        </ul>';
             proList.append(str);
         }
@@ -335,7 +335,7 @@
             var str = '<ul>\n' +
                 '            <li style="width: 81px;"><span>' + (z + 1) + '</span></li>\n' +
                 '            <li class="li_center">' + data[z].name + '</li>\n' +
-                '            <li>¥' + data[z].value + '</li>\n' +
+                '            <li>' + Math.ceil((data[z].value) * 0.025) + '</li>\n' +
                 '        </ul>';
             hotList.append(str);
         }
@@ -384,7 +384,7 @@
         var num = goodResult + shopResult;
         $(".num_num").rollNum({
             deVal: num,
-            digit: 7
+            digit: 8
         });
     }
     togther();
