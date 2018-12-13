@@ -13,8 +13,8 @@
 </head>
 <body style="width: 100%;height: 100%; margin: 0; background: #000000;">
 <div class="mask"></div>
-<video class="video_player3" style="width: 5760px; height: 3240px;"  autoplay loop muted>
-    <source src="video/video3.mp4" type="video/mp4" >
+<video class="video_player3" id="video3" style="width: 5760px; height: 3240px;"  autoplay loop muted>
+    <source src="video/video6.mp4" type="video/mp4" >
 </video>
 <div class="food">
     <div class="food_title">今日外卖总订单数：</div>
@@ -710,6 +710,13 @@
     if (option && typeof option === "object") {
         myChart.setOption(option, true);
     }
+    //设置视频
+    var myDate = new Date();
+    var utc = myDate.getTime();
+    var video = (utc / 1000) % 80;
+    console.log(video);
+    myVid = document.getElementById("video3");
+    myVid.currentTime = video;
 </script>
 </body>
 </html>

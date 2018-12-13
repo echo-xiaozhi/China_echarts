@@ -13,8 +13,8 @@
 <div class="img_bak">
     <img src="images/map.png" alt="">
 </div>
-<video class="video_player1" style="width: 5760px; height: 3240px;" autoplay loop muted>
-    <source src="video/video3.mp4" type="video/mp4">
+<video class="video_player1" id="video1" style="width: 5760px; height: 3240px;" autoplay loop muted>
+    <source src="video/video6.mp4" type="video/mp4">
 </video>
 <div id="container" style="height: 100%"></div>
 <div class="font-left">四大仓储中心<br/>物流动态路径图</div>
@@ -1012,6 +1012,12 @@
     var y = $('.roll-content').offset().top + 199;
     // var sixY = $('.roll-content .roll_list li').eq(6).offset().top + 33;
     // var endRollY = $('.roll-content .roll_list li:last-child').offset().top + 33;
+    var myDate = new Date();
+    var utc = myDate.getTime();
+    var video = (utc / 1000) % 80;
+    console.log(video);
+    myVid = document.getElementById("video1");
+    myVid.currentTime = video;
 
 </script>
 
@@ -1130,6 +1136,7 @@
     window.onload = function () {
         JSConnect();
     }
+    // 设置视频
 </script>
 
 </body>

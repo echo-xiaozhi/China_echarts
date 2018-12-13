@@ -22,8 +22,8 @@
 <script src=js/app.6348a2ec.js></script>
 <div class="big_box">
     <div class="mask"></div>
-    <video class="video_player2" style="width: 5760px; height: 3240px;" autoplay loop muted>
-        <source src="video/video3.mp4" type="video/mp4">
+    <video class="video_player2" id="video2" style="width: 5760px; height: 3240px;" autoplay loop muted>
+        <source src="video/video6.mp4" type="video/mp4">
     </video>
     <div id="container" style="height: 100%"></div>
     <div class="font-left">源动力集团<br/>经营大数据</div>
@@ -388,6 +388,14 @@
         });
     }
     togther();
+
+    //设置视频
+    var myDate = new Date();
+    var utc = myDate.getTime();
+    var video = (utc / 1000) % 80;
+    console.log(video);
+    myVid = document.getElementById("video2");
+    myVid.currentTime = video;
 </script>
 </body>
 </html>
