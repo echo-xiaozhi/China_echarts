@@ -11,7 +11,7 @@
     <script type="text/javascript" src="./cyberplayer-3.4.1/cyberplayer.js"></script>
     <script src="js/data/video.json"></script>
 </head>
-<body style="width: 100%;height: 100%; margin: 0; background: #000000;">
+<body style="width: 100%;height: 100%; margin: 0; background: #000000;-webkit-transform: scale(2);-moz-transform: scale(2);-ms-transform: scale(2);-o-transform: scale(2);transform: scale(2);-webkit-transform-origin: top left;-moz-transform-origin: top left;-ms-transform-origin: top left;-o-transform-origin: top left;transform-origin: top left;">
 <div class="mask"></div>
 <video class="video_player3" id="video3" style="width: 5760px; height: 3240px;"  autoplay loop muted>
     <source src="video/video6.mp4" type="video/mp4" >
@@ -302,7 +302,7 @@
         while (i-- > min) {
             index = Math.floor((i + 1) * Math.random());
             temp = shuffled[index];
-            arr.splice(index, 1);
+            // arr.splice(index, 1);
             shuffled[index] = shuffled[i];
             shuffled[i] = temp;
         }
@@ -311,9 +311,14 @@
         for (var z = 0; z < randomData.length; z++) {
             var name = randomData[z].name;
             var endValue = randomData[z].value + getFoodRandomNum();
-            var endArr = {name: name, value: endValue};
-            randomData.splice(z, 1, endArr);
-            arr.push(randomData[z]);
+            for (var y = 0; y < arr.length; y++) {
+                if (arr[y].name == name) {
+                    arr[y].value = endValue;
+                }
+            }
+            // var endArr = {name: name, value: endValue};
+            // randomData.splice(z, 1, endArr);
+            // arr.push(randomData[z]);
         }
         return arr;
     }
@@ -323,7 +328,7 @@
         while (i-- > min) {
             index = Math.floor((i + 1) * Math.random());
             temp = shuffled[index];
-            arr.splice(index, 1);
+            // arr.splice(index, 1);
             shuffled[index] = shuffled[i];
             shuffled[i] = temp;
         }
@@ -332,9 +337,14 @@
         for (var z = 0; z < randomData.length; z++) {
             var name = randomData[z].name;
             var endValue = randomData[z].value + getHotRandomNum();
-            var endArr = {name: name, value: endValue};
-            randomData.splice(z, 1, endArr);
-            arr.push(randomData[z]);
+            for (var y = 0; y < arr.length; y++) {
+                if (arr[y].name == name) {
+                    arr[y].value = endValue;
+                }
+            }
+            // var endArr = {name: name, value: endValue};
+            // randomData.splice(z, 1, endArr);
+            // arr.push(randomData[z]);
         }
         return arr;
     }
@@ -710,13 +720,25 @@
     if (option && typeof option === "object") {
         myChart.setOption(option, true);
     }
+
     //设置视频
-    var myDate = new Date();
-    var utc = myDate.getTime();
-    var video = (utc / 1000) % 80;
-    console.log(video);
-    myVid = document.getElementById("video3");
-    myVid.currentTime = video;
+    setTimeout(function () {
+        var myDate = new Date();
+        var utc = myDate.getTime();
+        var video = (utc / 1000) % 80;
+        // console.log(video);
+        myVid = document.getElementById("video3");
+        myVid.currentTime = video;
+    }, 5000);
+    setInterval(function () {
+        var myDate = new Date();
+        var utc = myDate.getTime();
+        var video = (utc / 1000) % 80;
+        console.log(video);
+        myVid = document.getElementById("video3");
+        myVid.currentTime = video;
+    }, 40000)
+
 </script>
 </body>
 </html>

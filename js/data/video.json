@@ -1,5 +1,5 @@
 var videoAddress = '{"videoAddress": [' +
-  '{"info" : "rtmp://rtmp.open.ys7.com/openlive/0fc281433ec948a796ca4cbb3e63544a.hd"},' +
-  '{"info" : "rtmp://rtmp.open.ys7.com/openlive/04d486b448ce47eb919fc7d0d7ab596f.hd"},' +
-  '{"info" : "rtmp://rtmp.open.ys7.com/openlive/3ef72b907985407691b596035103c6f8.hd"},' +
-  '{"info" : "rtmp://rtmp.open.ys7.com/openlive/325cbe6487dc4b9ba01880844607728a.hd"}]}';
+  '{"info" : "http://hls.open.ys7.com/openlive/60f6d4adc27a486297327b335a4d41bb.hd.m3u8"},'/* 第一个视频 */ +
+  '{"info" : "http://hls.open.ys7.com/openlive/1dcd4f3326814df0955e8ba7215fceb2.hd.m3u8"},'/* 第二个视频 */ +
+  '{"info" : "http://hls.open.ys7.com/openlive/60f6d4adc27a486297327b335a4d41bb.hd.m3u8"},'/* 第三个视频 */ +
+  '{"info" : "http://hls.open.ys7.com/openlive/1dcd4f3326814df0955e8ba7215fceb2.hd.m3u8"}]}'/* 第四个视频 */;

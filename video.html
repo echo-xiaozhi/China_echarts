@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            overflow-y:hidden;
+        }
+        .video_little_plugin object{
+            width: 100%;
+            height: 263px;
+        }
+    </style>
+</head>
+<body>
+<div class="video_little_plugin" id="plugConter" style="width: 100%; height: 100%;">
+
+</div>
+<script language="javascript" type="text/javascript">
+
+    function IsWin7_64() {
+        if (navigator.userAgent.indexOf("MSIE") > 0 &&
+            navigator.userAgent.indexOf("Windows NT 6.1") > 0 &&
+            navigator.userAgent.indexOf("x64") > 0
+        ) {
+            return true;
+        }
+    }
+    if (IsWin7_64()) {
+
+        alert("请使用32位浏览器!");
+
+    }
+
+    function getOs() {
+        //判断ie
+        if (!!window.ActiveXObject || "ActiveXObject" in window) {
+            return "MSIE";
+        }
+
+        /* //判断ie6-ie10
+        if (navigator.userAgent.indexOf("MSIE") > 0) {
+        return "MSIE";
+        }*/
+        if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
+            return "Firefox";
+        }
+        if (isSafari = navigator.userAgent.indexOf("Chrome") > 0) {
+            return "Chrome";
+        }
+        if (isCamino = navigator.userAgent.indexOf("Safari") > 0) {
+            return "Safari";
+        }
+        return "Chrome";
+    }
+
+    var obj = getOs();
+
+    setTimeout("InitPlugin();", 200);
+
+    function InitPlugin() {
+        try {
+            if (obj == "Chrome") {
+                JSSetChromeExplorer();
+            }
+            JSDivideWindow(1);
+        }
+        catch (e) {
+            setTimeout("InitPlugin();", 200);
+        }
+    }
+
+    if (obj == "MSIE") {
+        document.getElementById("plugConter").innerHTML = "<object id=\"MS_Activex\" classid=\"clsid:12168BC5-28EF-4898-883B-22EC3B5FD53E\"  > </object>";
+    }
+    else if (obj == "Firefox") {
+        document.getElementById("plugConter").innerHTML = "<object id=\"MS_Activex\" type=\"application/webcc-plugin\" > </object>";
+    }
+    else if (obj == "Chrome") {
+        document.getElementById("plugConter").innerHTML = "<object id=\"MS_Activex\" type=\"application/webcc-plugin\"  ></object>";
+
+    }
+
+    if (obj == "MSIE") {
+        MS_Activex.attachEvent("OnChnSelected", OnChnSelected);
+        MS_Activex.attachEvent("OnChnStateChanged", OnChnStateChanged);
+        MS_Activex.attachEvent("OnConnectChanged", OnConnectChanged);
+    }
+
+    function OnChnStateChanged(ip, nSrv, state) {
+        //        alert("OnChnStateChanged:" + ip + "服务通道:" + nSrv + "状态:" + state);
+    }
+
+    function OnChnSelected(ip, nSrv, nLocalIndex, state) {
+        //        alert("OnChnSelected:" + ip + "窗口:" + nLocalIndex + "服务通道:" + nSrv + "状态:" + state);
+    }
+
+    /*连接返回状态*/
+    var ConnectState =
+        {
+            CS_NOCONN: 0, 	//没有连接
+            CS_CONNECTING: 1, 	//连接中
+            CS_CONNOK: 2, 	//连接成功
+            CONNERR: 3, 	//连接失败
+            DISOK: 4, 	//断开连接成功
+            CS_DISCON: 5, 	//连接异常断开
+            CS_SSTOP: 6, 	//服务停止
+            CS_OTHER: 7
+        }
+
+    function OnConnectChanged(ip, nSrv, state) {
+        //alert("Connect:" + ip + "通道" + nSrv + "的连接状态为" + state);
+    }
+
+    function JSConnect() {//连接
+        var yst = 'T362522450';
+        var chnno= 1;
+        var account = 'abc';
+        var pwd = 123;
+        //alert("yst:" + ip +" chnno:"+chnno+ " account:" + account + " pwd:" + pwd);
+        MS_Activex.JSConnect(yst, account, pwd, 9101, chnno, 0,false);
+    }
+
+    function JSDisconnect() {//断开
+        var yst = txt_YST.value;
+        var chnno= txt_chno.value;
+        MS_Activex.JSDisconnect(yst, chnno);
+    }
+
+
+    window.onload = function () {
+        JSConnect();
+    }
+
+
+</script>
+</body>
+</html>

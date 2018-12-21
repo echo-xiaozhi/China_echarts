@@ -92,7 +92,7 @@ body{
 .video_player3 {
     position: fixed;
     top: -1080px;
-    right: 0;
+    left: -3840px;
     min-width: 100%;
     min-height: 100%;
     height: auto;
@@ -991,4 +991,19 @@ body{
 .img_bak img{
     width: 100%;
     height: 100%;
+}
+
+#news-container{
+    height: 358px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+#news-container .roll_list{
+    position: absolute;
+    display: block;
+    transition: top 1s;
+    -moz-transition: top 1s;
+    -webkit-transition: top 1s;
+    -o-transition: top 1s;
 }

@@ -36,7 +36,9 @@
     </div>
 </div>
 <div class="video_img">
-    <div class="video_little_plugin" id="plugConter"></div>
+    <div class="video_little_plugin" id="plugConter">
+        <iframe src="video.html" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
     <!--<img src="images/video.png" alt="">-->
 </div>
 
@@ -135,6 +137,10 @@
 <script type="text/javascript" src="echarts/china.js"></script>
 
 <script type="text/javascript">
+
+    // var time= $.ajax({async: false}).getResponseHeader("Date");
+    // console.log(time);
+
     // 定义所有用到的数据
     var JNData = [];
     var dom = document.getElementById("container");
@@ -495,6 +501,7 @@
 
     };
     var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
+    // var planePath = 'image://images/fly.png';
     var orderUnitNumMax = 10;
     var orderUnitNumMin = 3;
     var depotNumMax = 4;
@@ -530,7 +537,11 @@
                 '                </li>';
 
             var roll = $('.roll_list');
-            roll.append(str);
+            var rollLiLength = roll.find('li').length;
+            // if (rollLiLength < 300) {
+            //     console.log(rollLiLength);
+                roll.append(str);
+            // }
             var cityName = data.user[z].city;
             // js 变量获取json值
             var cityX = geoCoordMap[cityName][0];
@@ -565,11 +576,14 @@
         // }
     }
     // 向上滚动
+    let h = 0;
     function autoscroll(obj) {
+        $(obj).find("ul").css('top', h);
+        h -= 33;
         //这里的25px是#scrollDiv的高度
-        $(obj).find("ul:first").animate({marginTop: "-33px"}, 100, function () {
-            $(this).css("marginTop", "0px").find("li:first").appendTo(this)
-        })
+        // $(obj).find("ul:first").animate({marginTop: "-33px"}, 100, function () {
+        //     $(this).css("marginTop", "0px").find("li:first").appendTo(this)
+        // })
         /*$(this).css("marginTop","0px")这里也许会有人搞不明白，为什么又设为0。因为在ul向上移25px的时候，其第一个li会添加到ul的末尾，如果ul的marginTop不设为0的话，整个ul就会慢慢移出它的父盒子，最后使得它的父盒子变空，实现不了原本想要实现的效果。*/
     }
 
@@ -667,7 +681,7 @@
                     period: 6,
                     trailLength: 0,
                     symbol: planePath,
-                    symbolSize: 15,
+                    symbolSize: 22,
                     loop: false,
                 },
                 lineStyle: {
@@ -1007,137 +1021,34 @@
                 autoscroll('#news-container');
             }
         }
-    },1000);
+    },2000);
 
     var y = $('.roll-content').offset().top + 199;
     // var sixY = $('.roll-content .roll_list li').eq(6).offset().top + 33;
     // var endRollY = $('.roll-content .roll_list li:last-child').offset().top + 33;
-    var myDate = new Date();
-    var utc = myDate.getTime();
-    var video = (utc / 1000) % 80;
-    console.log(video);
-    myVid = document.getElementById("video1");
-    myVid.currentTime = video;
 
-</script>
-
-<script language="javascript" type="text/javascript">
-
-    function IsWin7_64() {
-        if (navigator.userAgent.indexOf("MSIE") > 0 &&
-            navigator.userAgent.indexOf("Windows NT 6.1") > 0 &&
-            navigator.userAgent.indexOf("x64") > 0
-        ) {
-            return true;
-        }
-    }
-    if (IsWin7_64()) {
-
-        alert("请使用32位浏览器!");
-
-    }
-
-    function getOs() {
-        //判断ie
-        if (!!window.ActiveXObject || "ActiveXObject" in window) {
-            return "MSIE";
-        }
-
-        /* //判断ie6-ie10
-        if (navigator.userAgent.indexOf("MSIE") > 0) {
-        return "MSIE";
-        }*/
-        if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
-            return "Firefox";
-        }
-        if (isSafari = navigator.userAgent.indexOf("Chrome") > 0) {
-            return "Chrome";
-        }
-        if (isCamino = navigator.userAgent.indexOf("Safari") > 0) {
-            return "Safari";
-        }
-        return "Chrome";
-    }
-
-    var obj = getOs();
-
-    setTimeout("InitPlugin();", 200);
-
-    function InitPlugin() {
-        try {
-            if (obj == "Chrome") {
-                JSSetChromeExplorer();
-            }
-            JSDivideWindow(1);
-        }
-        catch (e) {
-            setTimeout("InitPlugin();", 200);
-        }
-    }
-
-    if (obj == "MSIE") {
-        document.getElementById("plugConter").innerHTML = "<object id=\"MS_Activex\" classid=\"clsid:12168BC5-28EF-4898-883B-22EC3B5FD53E\"  > </object>";
-    }
-    else if (obj == "Firefox") {
-        document.getElementById("plugConter").innerHTML = "<object id=\"MS_Activex\" type=\"application/webcc-plugin\" > </object>";
-    }
-    else if (obj == "Chrome") {
-        document.getElementById("plugConter").innerHTML = "<object id=\"MS_Activex\" type=\"application/webcc-plugin\"  ></object>";
-
-    }
-
-    if (obj == "MSIE") {
-        MS_Activex.attachEvent("OnChnSelected", OnChnSelected);
-        MS_Activex.attachEvent("OnChnStateChanged", OnChnStateChanged);
-        MS_Activex.attachEvent("OnConnectChanged", OnConnectChanged);
-    }
-
-    function OnChnStateChanged(ip, nSrv, state) {
-        //        alert("OnChnStateChanged:" + ip + "服务通道:" + nSrv + "状态:" + state);
-    }
-
-    function OnChnSelected(ip, nSrv, nLocalIndex, state) {
-        //        alert("OnChnSelected:" + ip + "窗口:" + nLocalIndex + "服务通道:" + nSrv + "状态:" + state);
-    }
-
-    /*连接返回状态*/
-    var ConnectState =
-        {
-            CS_NOCONN: 0, 	//没有连接
-            CS_CONNECTING: 1, 	//连接中
-            CS_CONNOK: 2, 	//连接成功
-            CONNERR: 3, 	//连接失败
-            DISOK: 4, 	//断开连接成功
-            CS_DISCON: 5, 	//连接异常断开
-            CS_SSTOP: 6, 	//服务停止
-            CS_OTHER: 7
-        }
-
-    function OnConnectChanged(ip, nSrv, state) {
-        //alert("Connect:" + ip + "通道" + nSrv + "的连接状态为" + state);
-    }
-
-    function JSConnect() {//连接
-        var yst = 'T362522450';
-        var chnno= 1;
-        var account = 'abc';
-        var pwd = 123;
-        //alert("yst:" + ip +" chnno:"+chnno+ " account:" + account + " pwd:" + pwd);
-        MS_Activex.JSConnect(yst, account, pwd, 9101, chnno, 0,false);
-    }
-
-    function JSDisconnect() {//断开
-        var yst = txt_YST.value;
-        var chnno= txt_chno.value;
-        MS_Activex.JSDisconnect(yst, chnno);
-    }
-
-
-    window.onload = function () {
-        JSConnect();
-    }
+    setTimeout(function () {
+        var myDate = new Date();
+        var utc = myDate.getTime();
+        var video = (utc / 1000) % 80;
+        // console.log(video);
+        myVid = document.getElementById("video1");
+        myVid.currentTime = video;
+    }, 5000);
     // 设置视频
+    setInterval(function () {
+        var myDate = new Date();
+        var utc = myDate.getTime();
+        var video = (utc / 1000) % 80;
+        // console.log(video);
+        myVid = document.getElementById("video1");
+        myVid.currentTime = video;
+    }, 40000);
+
+
 </script>
+
+
 
 </body>
 </html>

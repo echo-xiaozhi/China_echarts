@@ -244,22 +244,31 @@
     }
     // 从数组中取出某几个元素 取出值删除原数组值 重新合并到原数组
     function getRandomArrayElementsShop(arr, count) {
+        // console.log(arr);
         var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
         while (i-- > min) {
             index = Math.floor((i + 1) * Math.random());
             temp = shuffled[index];
-            arr.splice(index, 1);
+            // arr.splice(index, 1);
             shuffled[index] = shuffled[i];
             shuffled[i] = temp;
         }
+        // console.log(shuffled.slice(min));
+
         var randomData = shuffled.slice(min);
         for (var z = 0; z < randomData.length; z++) {
             var name = randomData[z].name;
             var endValue = randomData[z].value + getShopRandomNum();
-            var endArr = {name: name, value: endValue};
-            randomData.splice(z, 1, endArr);
-            arr.push(randomData[z]);
+            for (var y = 0; y < arr.length; y++) {
+                if (arr[y].name == name) {
+                    arr[y].value = endValue;
+                }
+            }
+            // var endArr = {name: name, value: endValue};
+            // randomData.splice(z, 1, endArr);
+            // arr.push(randomData[z]);
         }
+        // console.log(arr);
         return arr;
     }
     // 从数组中取出某几个元素 取出值删除原数组值 重新合并到原数组
@@ -268,7 +277,7 @@
         while (i-- > min) {
             index = Math.floor((i + 1) * Math.random());
             temp = shuffled[index];
-            arr.splice(index, 1);
+            // arr.splice(index, 1);
             shuffled[index] = shuffled[i];
             shuffled[i] = temp;
         }
@@ -276,9 +285,14 @@
         for (var z = 0; z < randomData.length; z++) {
             var name = randomData[z].name;
             var endValue = randomData[z].value + getGoodRandomNum();
-            var endArr = {name: name, value: endValue};
-            randomData.splice(z, 1, endArr);
-            arr.push(randomData[z]);
+            for (var y = 0; y < arr.length; y++) {
+                if (arr[y].name == name) {
+                    arr[y].value = endValue;
+                }
+            }
+            // var endArr = {name: name, value: endValue};
+            // randomData.splice(z, 1, endArr);
+            // arr.push(randomData[z]);
         }
         return arr;
     }
@@ -390,12 +404,23 @@
     togther();
 
     //设置视频
-    var myDate = new Date();
-    var utc = myDate.getTime();
-    var video = (utc / 1000) % 80;
-    console.log(video);
-    myVid = document.getElementById("video2");
-    myVid.currentTime = video;
+    setTimeout(function () {
+        var myDate = new Date();
+        var utc = myDate.getTime();
+        var video = (utc / 1000) % 80;
+        // console.log(video);
+        myVid = document.getElementById("video2");
+        myVid.currentTime = video;
+    }, 5000);
+    setInterval(function () {
+        var myDate = new Date();
+        var utc = myDate.getTime();
+        var video = (utc / 1000) % 80;
+        console.log(video);
+        myVid = document.getElementById("video2");
+        myVid.currentTime = video;
+    }, 40000)
+
 </script>
 </body>
 </html>
